@@ -1,4 +1,6 @@
-// api/contact.js — handles contact form submissions, forwards to team emails via Resend
+// api/contact.js — forwards contact form submissions via Gmail SMTP
+
+import nodemailer from 'nodemailer';
 
 const TEAM_EMAILS = ['collin@cnax.ai', 'nate@cnax.ai', 'alex@cnax.ai'];
 
@@ -7,9 +9,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const resendKey = process.env.RESEND_API_KEY;
-  if (!resendKey) {
-    return res.status(500).json({ error: 'Missing RESEND_API_KEY' });
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPass = process.env.GMAIL_PASS;
+
+  if (!gmailUser || !gmailPass) {
+    return res.status(500).json({ error: 'Missing GMAIL_USER or GMAIL_PASS env vars' });
   }
 
   const { name, email, phone, service, message } = req.body || {};
@@ -17,6 +21,11 @@ export default async function handler(req, res) {
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user: gmailUser, pass: gmailPass },
+  });
 
   const html = `
     <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
@@ -33,25 +42,13 @@ export default async function handler(req, res) {
   `;
 
   try {
-    const sendRes = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${resendKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'CNAX AI Contact <noreply@cnax.ai>',
-        to: TEAM_EMAILS,
-        reply_to: email,
-        subject: `New inquiry from ${name}`,
-        html,
-      }),
+    await transporter.sendMail({
+      from: `"CNAX AI Contact" <${gmailUser}>`,
+      to: TEAM_EMAILS.join(', '),
+      replyTo: email,
+      subject: `New inquiry from ${name}`,
+      html,
     });
-
-    if (!sendRes.ok) {
-      const err = await sendRes.text();
-      throw new Error(`Resend error ${sendRes.status}: ${err}`);
-    }
 
     return res.status(200).json({ success: true });
   } catch (err) {
