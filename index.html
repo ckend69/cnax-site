@@ -1994,22 +1994,22 @@
               <div class="contact-info-item">
                 <div class="ci-icon blue"><svg width="18" height="18" fill="none" stroke="#818cf8" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                 <div>
-                  <div class="ci-label">Email</div>
-                  <div class="ci-value"><a href="mailto:hello@cnax.ai">hello@cnax.ai</a></div>
+                  <div class="ci-label">Collin</div>
+                  <div class="ci-value"><a href="mailto:collin@cnax.ai">collin@cnax.ai</a></div>
                 </div>
               </div>
               <div class="contact-info-item">
-                <div class="ci-icon cyan"><svg width="18" height="18" fill="none" stroke="#22d3ee" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div class="ci-icon cyan"><svg width="18" height="18" fill="none" stroke="#22d3ee" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                 <div>
-                  <div class="ci-label">Response Time</div>
-                  <div class="ci-value">Within 2 hours (business hours)</div>
+                  <div class="ci-label">Nate</div>
+                  <div class="ci-value"><a href="mailto:nate@cnax.ai">nate@cnax.ai</a></div>
                 </div>
               </div>
               <div class="contact-info-item">
-                <div class="ci-icon purple"><svg width="18" height="18" fill="none" stroke="#c084fc" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <div class="ci-icon purple"><svg width="18" height="18" fill="none" stroke="#c084fc" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                 <div>
-                  <div class="ci-label">Book a Call</div>
-                  <div class="ci-value"><a href="#contact">Schedule a free 30-min strategy session</a></div>
+                  <div class="ci-label">Alex</div>
+                  <div class="ci-value"><a href="mailto:alex@cnax.ai">alex@cnax.ai</a></div>
                 </div>
               </div>
             </div>
@@ -2020,24 +2020,28 @@
               <div class="form-row">
                 <div class="form-group">
                   <label>First Name</label>
-                  <input type="text" placeholder="John" required />
+                  <input type="text" id="form-first" name="first" placeholder="John" required />
                 </div>
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input type="text" placeholder="Smith" required />
+                  <input type="text" id="form-last" name="last" placeholder="Smith" required />
                 </div>
               </div>
               <div class="form-group">
                 <label>Business Email</label>
-                <input type="email" placeholder="john@yourbusiness.com" required />
+                <input type="email" id="form-email" name="email" placeholder="john@yourbusiness.com" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="form-phone" name="phone" placeholder="(555) 000-0000" />
               </div>
               <div class="form-group">
                 <label>Business Name</label>
-                <input type="text" placeholder="Your Business Name" required />
+                <input type="text" id="form-business" name="business" placeholder="Your Business Name" required />
               </div>
               <div class="form-group">
                 <label>I'm most interested in...</label>
-                <select required>
+                <select id="form-service" name="service" required>
                   <option value="" disabled selected>Select a service</option>
                   <option>AI Business Integration</option>
                   <option>AI Sales Funnels</option>
@@ -2049,7 +2053,7 @@
               </div>
               <div class="form-group">
                 <label>Tell us about your business goals</label>
-                <textarea placeholder="What are your biggest challenges? What would success look like in 90 days?"></textarea>
+                <textarea id="form-message" name="message" placeholder="What are your biggest challenges? What would success look like in 90 days?"></textarea>
               </div>
               <button type="submit" class="btn-submit">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -2077,10 +2081,8 @@
             </div>
             <p class="footer-desc">We help small businesses harness the power of artificial intelligence — from operations to marketing — to grow faster and work smarter.</p>
             <div class="footer-socials">
-              <a href="#" class="social-btn" aria-label="Twitter/X">X</a>
-              <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
-              <a href="#" class="social-btn" aria-label="Instagram">IG</a>
-              <a href="#" class="social-btn" aria-label="Facebook">f</a>
+              <a href="https://www.facebook.com/people/CNAX-AI/61587135532942/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="https://www.instagram.com/cnax.ai" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
             </div>
           </div>
 
@@ -2254,12 +2256,45 @@
     statsSection && statsObserver.observe(statsSection);
 
     // ─── FORM SUBMIT ──────────────────────────────────────────────────
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('contact-form');
+      const btn  = form.querySelector('button[type="submit"]');
       const success = document.getElementById('form-success');
-      form.style.display = 'none';
-      success.classList.add('show');
+
+      const first   = document.getElementById('form-first').value.trim();
+      const last    = document.getElementById('form-last').value.trim();
+      const email   = document.getElementById('form-email').value.trim();
+      const phone   = document.getElementById('form-phone').value.trim();
+      const business = document.getElementById('form-business').value.trim();
+      const service = document.getElementById('form-service').value;
+      const message = document.getElementById('form-message').value.trim();
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: `${first} ${last}`,
+            email,
+            phone,
+            service: `${service} — ${business}`,
+            message,
+          }),
+        });
+
+        if (!res.ok) throw new Error('Send failed');
+
+        form.style.display = 'none';
+        success.classList.add('show');
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Send Message & Book Free Audit';
+        alert('Something went wrong. Please email us directly at collin@cnax.ai');
+      }
     }
 
     // ─── SMOOTH SCROLL ────────────────────────────────────────────────
