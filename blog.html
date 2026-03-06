@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | CNAX AI</title>
+  <meta name="description" content="AI insights, strategies, and guides for small businesses. Published by CNAX AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary:    #03030a;
+      --bg-secondary:  #07071a;
+      --bg-card:       rgba(255,255,255,0.03);
+      --bg-card-hover: rgba(255,255,255,0.06);
+      --border:        rgba(255,255,255,0.07);
+      --accent-blue:   #6366f1;
+      --accent-cyan:   #06b6d4;
+      --accent-purple: #a855f7;
+      --accent-green:  #10b981;
+      --text-primary:  #f1f5f9;
+      --text-secondary:#94a3b8;
+      --text-muted:    #475569;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    #neural-canvas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+
+    .page-wrap { position: relative; z-index: 2; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(3,3,10,0.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border); padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+
+    .logo-mark {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; color: #fff; letter-spacing: -1px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); }
+    .logo-text span { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: #fff; font-size: 14px; font-weight: 600; border: none; border-radius: var(--radius-md);
+      cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 30px rgba(99,102,241,0.35);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(99,102,241,0.5); }
+
+    /* HERO */
+    .blog-hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-cyan); padding: 6px 14px;
+      border: 1px solid rgba(6,182,212,0.25); border-radius: 100px;
+      background: rgba(6,182,212,0.06); margin-bottom: 24px;
+    }
+
+    .section-label::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent-cyan); animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+    .blog-hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(36px, 5vw, 64px); font-weight: 700;
+      letter-spacing: -2px; line-height: 1.1; margin-bottom: 20px;
+    }
+
+    .blog-hero p {
+      font-size: 18px; color: var(--text-secondary); max-width: 520px;
+      margin: 0 auto; line-height: 1.7;
+    }
+
+    /* FILTERS */
+    .filters {
+      padding: 40px 0 0;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 18px; border-radius: 100px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--text-muted); font-size: 13px; font-weight: 500;
+      cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      border-color: rgba(99,102,241,0.5);
+      background: rgba(99,102,241,0.1);
+      color: var(--text-primary);
+    }
+
+    /* GRID */
+    .blog-section { padding: 60px 0 120px; }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .post-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+
+    .post-card:hover {
+      border-color: rgba(99,102,241,0.3);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+    }
+
+    .post-card-img {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px;
+      flex-shrink: 0;
+    }
+
+    .cat-ai-integration  { background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05)); }
+    .cat-sales-funnels   { background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(6,182,212,0.05)); }
+    .cat-automation      { background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(168,85,247,0.05)); }
+    .cat-marketing       { background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(249,115,22,0.05)); }
+    .cat-analytics       { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(16,185,129,0.05)); }
+
+    .post-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+
+    .post-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .post-cat {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 100px;
+    }
+
+    .post-cat.cat-tag-ai-integration  { background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.25); }
+    .post-cat.cat-tag-sales-funnels   { background: rgba(6,182,212,0.15);  color: #22d3ee; border: 1px solid rgba(6,182,212,0.25); }
+    .post-cat.cat-tag-automation      { background: rgba(168,85,247,0.15); color: #c084fc; border: 1px solid rgba(168,85,247,0.25); }
+    .post-cat.cat-tag-marketing       { background: rgba(249,115,22,0.15); color: #fb923c; border: 1px solid rgba(249,115,22,0.25); }
+    .post-cat.cat-tag-analytics       { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.25); }
+
+    .post-read-time { font-size: 12px; color: var(--text-muted); }
+
+    .post-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+      line-height: 1.3; margin-bottom: 12px; color: var(--text-primary);
+    }
+
+    .post-excerpt { font-size: 14px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+
+    .post-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+    }
+
+    .post-date { font-size: 12px; color: var(--text-muted); }
+
+    .post-link {
+      font-size: 13px; font-weight: 600; color: var(--accent-blue);
+      text-decoration: none; display: flex; align-items: center; gap: 4px;
+      transition: gap 0.2s;
+    }
+
+    .post-link:hover { gap: 8px; }
+
+    /* EMPTY STATE */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center; padding: 80px 20px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+
+    .empty-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2);
+      display: flex; align-items: center; justify-content: center; font-size: 30px;
+    }
+
+    .empty-title { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; }
+    .empty-sub { font-size: 15px; color: var(--text-secondary); max-width: 380px; line-height: 1.65; }
+
+    /* SKELETON */
+    .skeleton {
+      background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 6px;
+    }
+
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    .skeleton-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+    }
+
+    .skeleton-img { height: 180px; }
+    .skeleton-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .skeleton-line { height: 14px; }
+    .skeleton-line.short { width: 40%; }
+    .skeleton-line.title { height: 20px; width: 85%; }
+    .skeleton-line.medium { width: 65%; }
+
+    /* MODAL (article reader) */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+      display: none; align-items: flex-start; justify-content: center;
+      padding: 40px 24px; overflow-y: auto;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      max-width: 780px; width: 100%;
+      padding: 48px;
+      position: relative;
+      margin: auto;
+    }
+
+    .modal-close {
+      position: absolute; top: 20px; right: 20px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-muted); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--text-primary); border-color: rgba(99,102,241,0.4); }
+
+    .modal-meta {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(24px, 3vw, 36px); font-weight: 700;
+      letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px;
+    }
+
+    .modal-excerpt {
+      font-size: 17px; color: var(--text-secondary); line-height: 1.75;
+      border-left: 3px solid var(--accent-blue); padding-left: 20px;
+      margin-bottom: 36px;
+    }
+
+    .modal-content { font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
+    .modal-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text-primary); margin: 36px 0 14px; letter-spacing: -0.5px; }
+    .modal-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 28px 0 10px; }
+    .modal-content p  { margin-bottom: 18px; }
+    .modal-content ul, .modal-content ol { margin: 0 0 18px 24px; }
+    .modal-content li { margin-bottom: 8px; }
+    .modal-content strong { color: var(--text-primary); }
+
+    /* LOAD MORE */
+    .load-more-wrap { text-align: center; padding-top: 48px; }
+
+    .btn-load-more {
+      padding: 14px 36px; background: transparent;
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      color: var(--text-secondary); font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+    }
+
+    .btn-load-more:hover {
+      border-color: rgba(99,102,241,0.4);
+      background: rgba(99,102,241,0.08);
+      color: var(--text-primary);
+    }
+
+    /* FOOTER */
+    .blog-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .blog-footer-text { font-size: 13px; color: var(--text-muted); }
+    .blog-footer a { color: var(--text-muted); text-decoration: none; }
+    .blog-footer a:hover { color: var(--text-secondary); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) { .post-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) {
+      .post-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .modal { padding: 32px 24px; }
+    }
+
+    /* fade-up */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<canvas id="neural-canvas"></canvas>
+
+<div class="page-wrap">
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-mark">CX</div>
+        <span class="logo-text">CNAX<span> AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#process">How It Works</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="container">
+      <div class="section-label">AI Insights</div>
+      <h1>The <span class="gradient-text">CNAX AI</span> Blog</h1>
+      <p>Strategies, guides, and insights to help small businesses harness the power of AI — published twice daily.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-cat="all">All Posts</button>
+      <button class="filter-btn" data-cat="AI Integration">AI Integration</button>
+      <button class="filter-btn" data-cat="Sales Funnels">Sales Funnels</button>
+      <button class="filter-btn" data-cat="Automation">Automation</button>
+      <button class="filter-btn" data-cat="Marketing">Marketing</button>
+      <button class="filter-btn" data-cat="Analytics">Analytics</button>
+    </div>
+  </div>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="post-grid" id="post-grid">
+        <!-- Skeletons while loading -->
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line short"></div><div class="skeleton skeleton-line title"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line medium"></div></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line short"></div><div class="skeleton skeleton-line title"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line medium"></div></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line short"></div><div class="skeleton skeleton-line title"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line medium"></div></div></div>
+      </div>
+      <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+        <button class="btn-load-more" id="load-more-btn">Load More Articles</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="blog-footer">
+      <span class="blog-footer-text">© 2025 CNAX AI — Published with intelligence.</span>
+      <a href="index.html" class="blog-footer-text">← Back to main site</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Article Modal -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div class="modal-meta" id="modal-meta"></div>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <p class="modal-excerpt" id="modal-excerpt"></p>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+  // ── Neural Canvas ──────────────────────────────────────────────────
+  const canvas = document.getElementById('neural-canvas');
+  const ctx = canvas.getContext('2d');
+  let nodes = [];
+
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+
+  function initNodes() {
+    nodes = Array.from({ length: 50 }, () => ({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 1.5 + 0.5, pulse: Math.random() * Math.PI * 2,
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 160) {
+          ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(99,102,241,${(1 - d/160) * 0.1})`; ctx.lineWidth = 0.8; ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n => {
+      n.pulse += 0.02;
+      const g = Math.sin(n.pulse) * 0.3 + 0.7;
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * g, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(99,102,241,${0.35 * g})`; ctx.fill();
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+      if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+
+  resize(); initNodes(); draw();
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+
+  // ── Blog Logic ─────────────────────────────────────────────────────
+  let allPosts = [];
+  let filtered = [];
+  let displayed = 0;
+  const PAGE_SIZE = 9;
+  let activeFilter = 'all';
+
+  const CATEGORY_EMOJI = {
+    'AI Integration': '🤖',
+    'Sales Funnels':  '📈',
+    'Automation':     '⚡',
+    'Marketing':      '🎯',
+    'Analytics':      '📊',
+  };
+
+  function catClass(cat) {
+    return cat.toLowerCase().replace(/\s+/g, '-');
+  }
+
+  function formatDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  function renderCards(posts) {
+    return posts.map(post => {
+      const cc = catClass(post.category || 'AI Integration');
+      const emoji = CATEGORY_EMOJI[post.category] || '🤖';
+      return `
+        <div class="post-card fade-up" onclick="openPost(${post.id})">
+          <div class="post-card-img cat-${cc}">${emoji}</div>
+          <div class="post-card-body">
+            <div class="post-meta">
+              <span class="post-cat cat-tag-${cc}">${post.category || 'AI Integration'}</span>
+              <span class="post-read-time">${post.readTime || '5 min read'}</span>
+            </div>
+            <div class="post-title">${post.title}</div>
+            <div class="post-excerpt">${post.excerpt}</div>
+            <div class="post-footer">
+              <span class="post-date">${formatDate(post.date)}</span>
+              <span class="post-link">Read article →</span>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function refreshGrid() {
+    const grid = document.getElementById('post-grid');
+    const slice = filtered.slice(0, displayed);
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">✍️</div>
+          <div class="empty-title">First posts coming soon</div>
+          <p class="empty-sub">Our AI is generating articles twice a day. Check back shortly — or subscribe to get notified.</p>
+        </div>`;
+    } else {
+      grid.innerHTML = renderCards(slice);
+      document.querySelectorAll('.post-card.fade-up').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 80);
+      });
+    }
+    const loadWrap = document.getElementById('load-more-wrap');
+    loadWrap.style.display = displayed < filtered.length ? 'block' : 'none';
+  }
+
+  async function loadPosts() {
+    try {
+      const res = await fetch('/posts.json?t=' + Date.now());
+      allPosts = await res.json();
+    } catch (e) {
+      allPosts = [];
+    }
+    applyFilter(activeFilter);
+  }
+
+  function applyFilter(cat) {
+    activeFilter = cat;
+    filtered = cat === 'all' ? [...allPosts] : allPosts.filter(p => p.category === cat);
+    displayed = Math.min(PAGE_SIZE, filtered.length) || PAGE_SIZE;
+    refreshGrid();
+  }
+
+  document.getElementById('filters').addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(btn.dataset.cat);
+  });
+
+  document.getElementById('load-more-btn').addEventListener('click', () => {
+    displayed = Math.min(displayed + PAGE_SIZE, filtered.length);
+    refreshGrid();
+  });
+
+  // ── Modal ──────────────────────────────────────────────────────────
+  function openPost(id) {
+    const post = allPosts.find(p => p.id === id);
+    if (!post) return;
+    const cc = catClass(post.category || 'AI Integration');
+    document.getElementById('modal-meta').innerHTML = `
+      <span class="post-cat cat-tag-${cc}">${post.category || 'AI Integration'}</span>
+      <span class="post-read-time" style="color:var(--text-muted);font-size:13px;">${post.readTime || '5 min read'}</span>
+      <span class="post-read-time" style="color:var(--text-muted);font-size:13px;">${formatDate(post.date)}</span>`;
+    document.getElementById('modal-title').textContent = post.title;
+    document.getElementById('modal-excerpt').textContent = post.excerpt;
+    document.getElementById('modal-content').innerHTML = post.content;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModalBtn();
+  }
+
+  function closeModalBtn() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+
+  loadPosts();
+</script>
+
+</body>
+</html>
