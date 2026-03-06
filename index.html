@@ -1507,6 +1507,84 @@
       top: 40%; right: 10%;
     }
 
+    /* ─── ROI CALCULATOR ───────────────────────────────────────────── */
+    .roi-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-top: 56px; }
+    .roi-sliders { display: flex; flex-direction: column; gap: 28px; }
+    .roi-slider-group {}
+    .roi-slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 14px; color: var(--text-secondary); }
+    .roi-slider-label strong { color: var(--accent-cyan); font-size: 15px; }
+    .roi-range { width: 100%; -webkit-appearance: none; height: 4px; border-radius: 2px; background: var(--border); outline: none; cursor: pointer; }
+    .roi-range::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); cursor: pointer; box-shadow: 0 0 0 4px rgba(99,102,241,0.2); }
+    .roi-output { background: var(--bg-card); border: 1px solid rgba(99,102,241,0.25); border-radius: var(--radius-xl); padding: 40px; position: sticky; top: 100px; }
+    .roi-output-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 12px; }
+    .roi-total { font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; background: linear-gradient(135deg, #f87171, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 32px; }
+    .roi-breakdown { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+    .roi-line { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-secondary); }
+    .roi-line strong { color: var(--text-primary); }
+    .roi-line-total { font-weight: 600; color: var(--text-primary) !important; font-size: 15px !important; }
+    .roi-line-total strong { color: #fb923c !important; }
+    .roi-cta-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
+    .roi-cta-text strong { color: var(--accent-green); }
+    .roi-cta-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 14px 24px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; width: 100%; }
+    @media (max-width: 768px) { .roi-wrap { grid-template-columns: 1fr; } .roi-output { position: static; } }
+
+    /* ─── QUIZ CTA BANNER ───────────────────────────────────────────── */
+    .quiz-cta-banner { background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08)); border: 1px solid rgba(99,102,241,0.2); border-radius: var(--radius-xl); padding: 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .quiz-cta-badge { display: inline-block; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); color: var(--accent-green); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
+    .quiz-cta-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+    .quiz-cta-sub { font-size: 15px; color: var(--text-secondary); max-width: 480px; }
+    .quiz-cta-btn { display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 16px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+    .quiz-cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ─── QUIZ MODAL ────────────────────────────────────────────────── */
+    .quiz-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9000; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .quiz-overlay.open { display: flex; }
+    .quiz-modal { background: #0d0d1f; border: 1px solid rgba(99,102,241,0.3); border-radius: 24px; width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; padding: 48px; position: relative; }
+    .quiz-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; }
+    .quiz-close:hover { color: var(--text-primary); }
+    .quiz-progress { display: flex; gap: 6px; margin-bottom: 36px; }
+    .quiz-progress-dot { height: 4px; flex: 1; border-radius: 2px; background: var(--border); transition: background 0.3s; }
+    .quiz-progress-dot.active { background: var(--accent-blue); }
+    .quiz-progress-dot.done { background: var(--accent-green); }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+    .quiz-step-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 10px; }
+    .quiz-question { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 28px; line-height: 1.3; }
+    .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+    .quiz-option { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; font-size: 15px; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; text-align: left; }
+    .quiz-option:hover, .quiz-option.selected { border-color: var(--accent-blue); color: var(--text-primary); background: rgba(99,102,241,0.08); }
+    .quiz-nav { display: flex; justify-content: space-between; margin-top: 28px; gap: 12px; }
+    .quiz-btn-back { background: none; border: 1px solid var(--border); color: var(--text-secondary); padding: 12px 20px; border-radius: 10px; font-size: 14px; cursor: pointer; }
+    .quiz-btn-next { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; margin-left: auto; }
+    .quiz-btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
+    .quiz-email-step input { width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; font-size: 15px; color: var(--text-primary); outline: none; margin-bottom: 10px; }
+    .quiz-email-step input:focus { border-color: var(--accent-blue); }
+    .quiz-email-step p { font-size: 13px; color: var(--text-muted); }
+    .quiz-result { text-align: center; }
+    .quiz-result-icon { width: 64px; height: 64px; background: rgba(52,211,153,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .quiz-result h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .quiz-result p { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
+    .quiz-score-bar { background: var(--border); border-radius: 100px; height: 8px; margin: 16px 0 28px; overflow: hidden; }
+    .quiz-score-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-green)); transition: width 1s ease; }
+
+    /* ─── EXIT INTENT POPUP ─────────────────────────────────────────── */
+    .exit-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 9100; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .exit-overlay.open { display: flex; }
+    .exit-modal { background: #0d0d1f; border: 1px solid rgba(99,102,241,0.3); border-radius: 24px; width: 100%; max-width: 500px; padding: 48px 40px; position: relative; text-align: center; }
+    .exit-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-muted); cursor: pointer; }
+    .exit-badge { display: inline-block; background: rgba(251,146,60,0.1); border: 1px solid rgba(251,146,60,0.3); color: #fb923c; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 20px; }
+    .exit-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 12px; line-height: 1.25; }
+    .exit-sub { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.6; }
+    .exit-form { display: flex; flex-direction: column; gap: 12px; }
+    .exit-form input { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 12px; padding: 13px 18px; font-size: 15px; color: var(--text-primary); outline: none; }
+    .exit-form input:focus { border-color: var(--accent-blue); }
+    .exit-form button { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; }
+    .exit-skip { margin-top: 14px; font-size: 13px; color: var(--text-muted); cursor: pointer; }
+    .exit-skip:hover { color: var(--text-secondary); }
+    .exit-success { display: none; }
+    .exit-success h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    .exit-success p { font-size: 15px; color: var(--text-secondary); }
+
     /* ─── FORM SUCCESS ─────────────────────────────────────────────── */
     .form-success {
       display: none;
@@ -1554,6 +1632,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#results">Results</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="blog.html">Blog</a></li>
         </ul>
@@ -1948,6 +2027,96 @@
       </div>
     </section>
 
+    <!-- ─── ROI CALCULATOR ──────────────────────────────────────────── -->
+    <section id="roi-calculator" style="padding: 120px 0; background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header fade-up">
+          <div class="section-label">ROI Calculator</div>
+          <h2 class="section-title">How Much Is <span class="gradient-text">Manual Work Costing You?</span></h2>
+          <p class="section-subtitle">Drag the sliders to see your real numbers — then imagine getting that back.</p>
+        </div>
+        <div class="roi-wrap fade-up">
+          <div class="roi-sliders">
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Employees doing repetitive tasks</span>
+                <strong id="val-employees">3</strong>
+              </div>
+              <input type="range" class="roi-range" id="sl-employees" min="1" max="20" value="3" />
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Hours per employee per week on those tasks</span>
+                <strong id="val-hours">10</strong>
+              </div>
+              <input type="range" class="roi-range" id="sl-hours" min="1" max="40" value="10" />
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Average employee hourly cost (salary + overhead)</span>
+                <strong id="val-rate">$35</strong>
+              </div>
+              <input type="range" class="roi-range" id="sl-rate" min="15" max="150" value="35" step="5" />
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Leads lost per month due to slow follow-up</span>
+                <strong id="val-leads">15</strong>
+              </div>
+              <input type="range" class="roi-range" id="sl-leads" min="0" max="200" value="15" />
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Average deal / client value</span>
+                <strong id="val-deal">$2,500</strong>
+              </div>
+              <input type="range" class="roi-range" id="sl-deal" min="100" max="50000" value="2500" step="100" />
+            </div>
+          </div>
+          <div class="roi-output">
+            <div class="roi-output-title">Your Monthly Cost of <em>Not</em> Using AI</div>
+            <div class="roi-total" id="roi-total">$0</div>
+            <div class="roi-breakdown">
+              <div class="roi-line">
+                <span>Wasted labor cost</span>
+                <strong id="roi-labor">$0</strong>
+              </div>
+              <div class="roi-line">
+                <span>Lost revenue from missed leads</span>
+                <strong id="roi-revenue">$0</strong>
+              </div>
+              <div class="roi-line roi-line-total">
+                <span>Total monthly loss</span>
+                <strong id="roi-total2">$0</strong>
+              </div>
+            </div>
+            <div class="roi-cta-text">CNAX AI typically recovers <strong>60–80%</strong> of this within the first 90 days.</div>
+            <a href="#contact" class="roi-cta-btn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Get My Free AI Audit
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── AI AUDIT QUIZ CTA ─────────────────────────────────────── -->
+    <section style="padding: 80px 0; background: var(--bg-primary);">
+      <div class="container">
+        <div class="quiz-cta-banner fade-up">
+          <div class="quiz-cta-left">
+            <div class="quiz-cta-badge">Free · 2 Minutes · Instant Results</div>
+            <h2 class="quiz-cta-title">Take the AI Readiness Audit</h2>
+            <p class="quiz-cta-sub">Answer 6 questions and get a personalized report showing exactly where AI can save time and generate revenue in your business.</p>
+          </div>
+          <button class="quiz-cta-btn" onclick="openQuiz()">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Start Free Audit
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- ─── BLOG PREVIEW ────────────────────────────────────────────── -->
     <section id="blog-preview" style="padding: 120px 0; background: var(--bg-primary);">
       <div class="container">
@@ -2117,7 +2286,7 @@
             <ul class="footer-links">
               <li><a href="#process">How It Works</a></li>
               <li><a href="#results">Results</a></li>
-              <li><a href="#testimonials">Case Studies</a></li>
+              <li><a href="case-studies.html">Case Studies</a></li>
               <li><a href="blog.html">Blog</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -2364,6 +2533,304 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-E9EK57TFJ9');
+  </script>
+
+  <!-- ─── QUIZ MODAL ─────────────────────────────────────────────── -->
+  <div class="quiz-overlay" id="quiz-overlay">
+    <div class="quiz-modal">
+      <button class="quiz-close" onclick="closeQuiz()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="quiz-progress" id="quiz-progress"></div>
+
+      <!-- Step 1 -->
+      <div class="quiz-step active" data-step="1">
+        <div class="quiz-step-label">Step 1 of 6</div>
+        <div class="quiz-question">What industry is your business in?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this,'industry','Home Services')">Home Services (roofing, plumbing, HVAC, etc.)</button>
+          <button class="quiz-option" onclick="selectOption(this,'industry','Health & Wellness')">Health & Wellness (med spa, gym, clinic, etc.)</button>
+          <button class="quiz-option" onclick="selectOption(this,'industry','Professional Services')">Professional Services (legal, financial, consulting)</button>
+          <button class="quiz-option" onclick="selectOption(this,'industry','Retail / E-Commerce')">Retail / E-Commerce</button>
+          <button class="quiz-option" onclick="selectOption(this,'industry','Other')">Other</button>
+        </div>
+        <div class="quiz-nav"><button class="quiz-btn-next" disabled onclick="nextStep()">Next →</button></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="quiz-step" data-step="2">
+        <div class="quiz-step-label">Step 2 of 6</div>
+        <div class="quiz-question">How many employees do you have?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this,'size','Solo / Just me')">Solo / Just me</button>
+          <button class="quiz-option" onclick="selectOption(this,'size','2–5')">2–5 employees</button>
+          <button class="quiz-option" onclick="selectOption(this,'size','6–15')">6–15 employees</button>
+          <button class="quiz-option" onclick="selectOption(this,'size','16–50')">16–50 employees</button>
+          <button class="quiz-option" onclick="selectOption(this,'size','50+')">50+ employees</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-btn-back" onclick="prevStep()">← Back</button>
+          <button class="quiz-btn-next" disabled onclick="nextStep()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="quiz-step" data-step="3">
+        <div class="quiz-step-label">Step 3 of 6</div>
+        <div class="quiz-question">What's your biggest bottleneck right now?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this,'pain','Not enough leads')">Not generating enough leads</button>
+          <button class="quiz-option" onclick="selectOption(this,'pain','Leads not converting')">Leads come in but don't convert</button>
+          <button class="quiz-option" onclick="selectOption(this,'pain','Too much manual work')">Too much time on repetitive manual tasks</button>
+          <button class="quiz-option" onclick="selectOption(this,'pain','Losing to competitors')">Losing clients/deals to competitors</button>
+          <button class="quiz-option" onclick="selectOption(this,'pain','Scaling is hard')">Can't scale without hiring more people</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-btn-back" onclick="prevStep()">← Back</button>
+          <button class="quiz-btn-next" disabled onclick="nextStep()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="quiz-step" data-step="4">
+        <div class="quiz-step-label">Step 4 of 6</div>
+        <div class="quiz-question">What's your average monthly revenue?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this,'revenue','Under $10k')">Under $10,000/month</button>
+          <button class="quiz-option" onclick="selectOption(this,'revenue','$10k–$30k')">$10,000 – $30,000/month</button>
+          <button class="quiz-option" onclick="selectOption(this,'revenue','$30k–$100k')">$30,000 – $100,000/month</button>
+          <button class="quiz-option" onclick="selectOption(this,'revenue','$100k–$500k')">$100,000 – $500,000/month</button>
+          <button class="quiz-option" onclick="selectOption(this,'revenue','$500k+')">$500,000+/month</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-btn-back" onclick="prevStep()">← Back</button>
+          <button class="quiz-btn-next" disabled onclick="nextStep()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="quiz-step" data-step="5">
+        <div class="quiz-step-label">Step 5 of 6</div>
+        <div class="quiz-question">Are you currently using any AI or automation tools?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this,'aiuse','No, starting from scratch')">No — starting from scratch</button>
+          <button class="quiz-option" onclick="selectOption(this,'aiuse','Basic tools only')">Basic tools (Zapier, chatbots, etc.)</button>
+          <button class="quiz-option" onclick="selectOption(this,'aiuse','Some AI tools')">Some AI tools but not integrated</button>
+          <button class="quiz-option" onclick="selectOption(this,'aiuse','Yes, but not working well')">Yes, but they're not delivering results</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-btn-back" onclick="prevStep()">← Back</button>
+          <button class="quiz-btn-next" disabled onclick="nextStep()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 6 — Email capture -->
+      <div class="quiz-step quiz-email-step" data-step="6">
+        <div class="quiz-step-label">Step 6 of 6</div>
+        <div class="quiz-question">Where should we send your personalized AI audit report?</div>
+        <input type="text" id="quiz-name" placeholder="Your name" />
+        <input type="email" id="quiz-email" placeholder="Your business email" />
+        <p>We'll send your custom AI readiness score and top 3 recommendations within 24 hours. No spam, ever.</p>
+        <div class="quiz-nav">
+          <button class="quiz-btn-back" onclick="prevStep()">← Back</button>
+          <button class="quiz-btn-next" onclick="submitQuiz()">Get My Report →</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="quiz-step" id="quiz-result-step" data-step="result">
+        <div class="quiz-result">
+          <div class="quiz-result-icon">
+            <svg width="28" height="28" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <h3>Your AI Readiness Score</h3>
+          <div class="quiz-score-bar"><div class="quiz-score-fill" id="quiz-score-fill" style="width:0%"></div></div>
+          <p id="quiz-result-text">Analyzing your answers...</p>
+          <a href="#contact" class="roi-cta-btn" onclick="closeQuiz()" style="display:flex;margin-top:8px;">Book Your Free Strategy Call →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── EXIT INTENT POPUP ────────────────────────────────────────── -->
+  <div class="exit-overlay" id="exit-overlay">
+    <div class="exit-modal">
+      <button class="exit-close" onclick="closeExit()">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div id="exit-main">
+        <div class="exit-badge">Wait — Don't Leave Yet</div>
+        <div class="exit-title">Get Your Free AI Opportunity Report</div>
+        <div class="exit-sub">Before you go — enter your email and we'll send you a personalized breakdown of exactly where AI could save your business time and money. Takes 30 seconds.</div>
+        <form class="exit-form" onsubmit="submitExit(event)">
+          <input type="text" id="exit-name" placeholder="Your name" required />
+          <input type="email" id="exit-email" placeholder="Your email address" required />
+          <button type="submit">Send Me the Free Report</button>
+        </form>
+        <div class="exit-skip" onclick="closeExit()">No thanks, I'll figure it out on my own</div>
+      </div>
+      <div class="exit-success" id="exit-success">
+        <div class="quiz-result-icon" style="margin:0 auto 16px;">
+          <svg width="28" height="28" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3>You're all set!</h3>
+        <p>Check your inbox — your personalized AI report is on its way. We'll also follow up within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─── ROI CALCULATOR ─────────────────────────────────────────────
+    function fmtDollar(n) {
+      if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+      if (n >= 1000) return '$' + Math.round(n/1000) + 'K';
+      return '$' + n.toLocaleString();
+    }
+    function updateROI() {
+      const emp   = +document.getElementById('sl-employees').value;
+      const hrs   = +document.getElementById('sl-hours').value;
+      const rate  = +document.getElementById('sl-rate').value;
+      const leads = +document.getElementById('sl-leads').value;
+      const deal  = +document.getElementById('sl-deal').value;
+      document.getElementById('val-employees').textContent = emp;
+      document.getElementById('val-hours').textContent = hrs;
+      document.getElementById('val-rate').textContent = '$' + rate;
+      document.getElementById('val-leads').textContent = leads;
+      document.getElementById('val-deal').textContent = deal >= 1000 ? '$' + (deal/1000).toFixed(1) + 'K' : '$' + deal;
+      const labor   = Math.round(emp * hrs * 4.33 * rate);
+      const revenue = Math.round(leads * deal * 0.15);
+      const total   = labor + revenue;
+      document.getElementById('roi-labor').textContent   = fmtDollar(labor);
+      document.getElementById('roi-revenue').textContent = fmtDollar(revenue);
+      document.getElementById('roi-total').textContent   = fmtDollar(total);
+      document.getElementById('roi-total2').textContent  = fmtDollar(total);
+    }
+    document.querySelectorAll('.roi-range').forEach(r => r.addEventListener('input', updateROI));
+    updateROI();
+
+    // ─── QUIZ LOGIC ─────────────────────────────────────────────────
+    const TOTAL_STEPS = 6;
+    let currentStep = 1;
+    const quizAnswers = {};
+
+    function buildProgress() {
+      const bar = document.getElementById('quiz-progress');
+      bar.innerHTML = '';
+      for (let i = 1; i <= TOTAL_STEPS; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'quiz-progress-dot' + (i < currentStep ? ' done' : i === currentStep ? ' active' : '');
+        bar.appendChild(dot);
+      }
+    }
+
+    function openQuiz() {
+      currentStep = 1;
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+      document.querySelector('[data-step="1"]').classList.add('active');
+      document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+      document.querySelectorAll('.quiz-btn-next').forEach(b => b.disabled = true);
+      buildProgress();
+      document.getElementById('quiz-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuiz() {
+      document.getElementById('quiz-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function selectOption(el, key, value) {
+      el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      quizAnswers[key] = value;
+      el.closest('.quiz-step').querySelector('.quiz-btn-next').disabled = false;
+    }
+
+    function nextStep() {
+      document.querySelector(`[data-step="${currentStep}"]`).classList.remove('active');
+      currentStep++;
+      const next = document.querySelector(`[data-step="${currentStep}"]`);
+      if (next) next.classList.add('active');
+      buildProgress();
+    }
+
+    function prevStep() {
+      document.querySelector(`[data-step="${currentStep}"]`).classList.remove('active');
+      currentStep--;
+      document.querySelector(`[data-step="${currentStep}"]`).classList.add('active');
+      buildProgress();
+    }
+
+    async function submitQuiz() {
+      const name  = document.getElementById('quiz-name').value.trim();
+      const email = document.getElementById('quiz-email').value.trim();
+      if (!email) { document.getElementById('quiz-email').focus(); return; }
+
+      document.querySelector('[data-step="6"]').classList.remove('active');
+      const resultStep = document.getElementById('quiz-result-step');
+      resultStep.classList.add('active');
+      currentStep = 'result';
+      buildProgress();
+
+      // Score logic
+      const scores = { 'No, starting from scratch': 30, 'Basic tools only': 50, 'Some AI tools': 65, 'Yes, but not working well': 55 };
+      const painScores = { 'Not enough leads': 85, 'Leads not converting': 90, 'Too much manual work': 80, 'Losing to competitors': 88, 'Scaling is hard': 82 };
+      let score = scores[quizAnswers.aiuse] || 70;
+      if (painScores[quizAnswers.pain]) score = Math.min(97, Math.round((score + painScores[quizAnswers.pain]) / 2));
+
+      setTimeout(() => {
+        document.getElementById('quiz-score-fill').style.width = score + '%';
+        document.getElementById('quiz-result-text').textContent =
+          score >= 80
+            ? `Your score of ${score}/100 means there's massive, untapped AI potential in your business — particularly around ${quizAnswers.pain?.toLowerCase() || 'your workflows'}. Most businesses like yours see results within 30 days. We'll send your full report to ${email}.`
+            : `Your score of ${score}/100 shows you're already on the right track. We've identified specific areas in your ${quizAnswers.industry || 'industry'} where AI can give you a meaningful edge. Full breakdown is heading to ${email}.`;
+      }, 600);
+
+      // Send to team
+      const message = Object.entries({...quizAnswers, name, email}).map(([k,v]) => `${k}: ${v}`).join('\n');
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name || 'Quiz Lead', email, service: 'AI Audit Quiz', message }),
+      }).catch(() => {});
+    }
+
+    // ─── EXIT INTENT ────────────────────────────────────────────────
+    let exitShown = false;
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0 && !exitShown && !sessionStorage.getItem('exitSeen')) {
+        exitShown = true;
+        sessionStorage.setItem('exitSeen', '1');
+        document.getElementById('exit-overlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    function closeExit() {
+      document.getElementById('exit-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    async function submitExit(e) {
+      e.preventDefault();
+      const name  = document.getElementById('exit-name').value.trim();
+      const email = document.getElementById('exit-email').value.trim();
+      document.getElementById('exit-main').style.display = 'none';
+      document.getElementById('exit-success').style.display = 'block';
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, service: 'Exit Intent', message: 'Requested free AI opportunity report via exit popup.' }),
+      }).catch(() => {});
+      setTimeout(closeExit, 3000);
+    }
+
+    document.getElementById('quiz-overlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('quiz-overlay')) closeQuiz();
+    });
+    document.getElementById('exit-overlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('exit-overlay')) closeExit();
+    });
   </script>
 
   <!--Start of Tawk.to Script-->
