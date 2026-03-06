@@ -684,6 +684,14 @@
     .funnel-stage-3 { background: rgba(168,85,247,0.12); color: #c084fc; margin: 0 24px; }
     .funnel-stage-4 { background: rgba(16,185,129,0.12); color: #34d399; margin: 0 36px; }
 
+    .funnel-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      opacity: 0.7;
+    }
+
     .funnel-arrow {
       text-align: center;
       color: var(--text-muted);
@@ -907,8 +915,7 @@
       transform: translateY(-3px);
     }
 
-    .industry-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
-    .industry-name { font-size: 12px; color: var(--text-secondary); font-weight: 500; }
+    .industry-name { font-size: 13px; color: var(--text-secondary); font-weight: 500; letter-spacing: 0.02em; }
 
     /* ─── PRICING ──────────────────────────────────────────────────── */
     #pricing { background: var(--bg-secondary); }
@@ -1532,7 +1539,6 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#results">Results</a></li>
-          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="blog.html">Blog</a></li>
         </ul>
@@ -1550,8 +1556,8 @@
       <a href="#services" onclick="closeMobileNav()">Services</a>
       <a href="#process" onclick="closeMobileNav()">How It Works</a>
       <a href="#results" onclick="closeMobileNav()">Results</a>
-      <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
       <a href="#contact" onclick="closeMobileNav()">Contact</a>
+      <a href="blog.html" onclick="closeMobileNav()">Blog</a>
       <a href="#contact" onclick="closeMobileNav()" class="btn-primary" style="text-align:center; margin-top:8px;">Get Started Free</a>
     </div>
 
@@ -1605,15 +1611,15 @@
               <div class="orb-ring orb-ring-3"></div>
 
               <div class="orb-label orb-label-1 fade-up">
-                <div class="label-icon blue">🤖</div>
+                <div class="label-icon blue"><svg width="14" height="14" fill="none" stroke="#818cf8" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h.01M15 9h.01M9 15h6"/></svg></div>
                 <div class="label-text">
                   <strong>AI Integration</strong>
-                  <span>Live & Active</span>
+                  <span>Live &amp; Active</span>
                 </div>
               </div>
 
               <div class="orb-label orb-label-2 fade-up">
-                <div class="label-icon cyan">📈</div>
+                <div class="label-icon cyan"><svg width="14" height="14" fill="none" stroke="#22d3ee" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
                 <div class="label-text">
                   <strong>Conversion Rate</strong>
                   <span>+247% this month</span>
@@ -1621,7 +1627,7 @@
               </div>
 
               <div class="orb-label orb-label-3 fade-up">
-                <div class="label-icon green">⚡</div>
+                <div class="label-icon green"><svg width="14" height="14" fill="none" stroke="#34d399" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
                 <div class="label-text">
                   <strong>Auto-Qualified Lead</strong>
                   <span>Just converted</span>
@@ -1669,16 +1675,16 @@
 
           <!-- AI Integration -->
           <div class="service-card featured fade-up" style="--card-accent: var(--accent-blue);">
-            <div class="service-icon si-blue">🤖</div>
+            <div class="service-icon si-blue"><svg width="24" height="24" fill="none" stroke="#818cf8" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M12 11V7m-4 4V9a4 4 0 0 1 8 0v2"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><path d="M8.5 18.5h7"/></svg></div>
             <div class="service-tag tag-blue">AI Integration</div>
             <div class="service-name">Business AI Integration</div>
             <p class="service-desc">We embed powerful AI tools directly into your existing workflows — from customer service to inventory, operations to decision-making.</p>
             <ul class="service-features">
-              <li><span class="check">✓</span> Custom AI workflow design</li>
-              <li><span class="check">✓</span> CRM & tool integrations</li>
-              <li><span class="check">✓</span> AI chatbots & assistants</li>
-              <li><span class="check">✓</span> Process automation</li>
-              <li><span class="check">✓</span> Data & reporting dashboards</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Custom AI workflow design</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> CRM & tool integrations</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> AI chatbots & assistants</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Process automation</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Data & reporting dashboards</li>
             </ul>
           </div>
 
@@ -1690,29 +1696,29 @@
               <div>
                 <p class="service-desc">We design and deploy intelligent sales funnels that use AI to qualify, nurture, and convert leads — automatically, 24/7.</p>
                 <ul class="service-features">
-                  <li><span class="check">✓</span> Multi-step funnel architecture</li>
-                  <li><span class="check">✓</span> AI lead scoring & qualification</li>
-                  <li><span class="check">✓</span> Automated email & SMS sequences</li>
-                  <li><span class="check">✓</span> High-converting landing pages</li>
-                  <li><span class="check">✓</span> A/B testing & optimization</li>
-                  <li><span class="check">✓</span> Full analytics & ROI tracking</li>
+                  <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Multi-step funnel architecture</li>
+                  <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> AI lead scoring & qualification</li>
+                  <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Automated email & SMS sequences</li>
+                  <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> High-converting landing pages</li>
+                  <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> A/B testing & optimization</li>
+                  <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Full analytics & ROI tracking</li>
                 </ul>
               </div>
               <div class="funnel-visual">
                 <div class="funnel-stage funnel-stage-1">
-                  <span>🎯</span> Awareness &amp; Capture
+                  <span class="funnel-num">01</span> Awareness &amp; Capture
                 </div>
                 <div class="funnel-arrow"></div>
                 <div class="funnel-stage funnel-stage-2">
-                  <span>🤖</span> AI Qualification
+                  <span class="funnel-num">02</span> AI Qualification
                 </div>
                 <div class="funnel-arrow"></div>
                 <div class="funnel-stage funnel-stage-3">
-                  <span>💬</span> Nurture &amp; Engage
+                  <span class="funnel-num">03</span> Nurture &amp; Engage
                 </div>
                 <div class="funnel-arrow"></div>
                 <div class="funnel-stage funnel-stage-4">
-                  <span>💰</span> Convert &amp; Close
+                  <span class="funnel-num">04</span> Convert &amp; Close
                 </div>
               </div>
             </div>
@@ -1720,40 +1726,40 @@
 
           <!-- Automation -->
           <div class="service-card fade-up" style="--card-accent: var(--accent-purple);">
-            <div class="service-icon si-purple">⚡</div>
+            <div class="service-icon si-purple"><svg width="24" height="24" fill="none" stroke="#c084fc" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
             <div class="service-tag tag-purple">Automation</div>
             <div class="service-name">Workflow Automation</div>
             <p class="service-desc">Free your team from repetitive tasks. We automate approvals, follow-ups, data sync, and more — with zero code required on your end.</p>
             <ul class="service-features">
-              <li><span class="check">✓</span> Zapier / Make automation</li>
-              <li><span class="check">✓</span> Email & follow-up automation</li>
-              <li><span class="check">✓</span> Scheduling & booking flows</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Zapier / Make automation</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Email & follow-up automation</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Scheduling & booking flows</li>
             </ul>
           </div>
 
           <!-- Analytics -->
           <div class="service-card fade-up" style="--card-accent: var(--accent-green);">
-            <div class="service-icon si-green">📊</div>
+            <div class="service-icon si-green"><svg width="24" height="24" fill="none" stroke="#34d399" stroke-width="1.5" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
             <div class="service-tag tag-green">Analytics</div>
             <div class="service-name">AI Analytics &amp; Insights</div>
             <p class="service-desc">Stop guessing. Our AI surfaces what's working, predicts what's next, and gives you a clear, real-time picture of your business performance.</p>
             <ul class="service-features">
-              <li><span class="check">✓</span> Custom dashboards</li>
-              <li><span class="check">✓</span> Predictive revenue modeling</li>
-              <li><span class="check">✓</span> Customer behavior analysis</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Custom dashboards</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Predictive revenue modeling</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Customer behavior analysis</li>
             </ul>
           </div>
 
           <!-- AI Content -->
           <div class="service-card fade-up" style="--card-accent: #f59e0b;">
-            <div class="service-icon si-orange">✍️</div>
+            <div class="service-icon si-orange"><svg width="24" height="24" fill="none" stroke="#fb923c" stroke-width="1.5" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
             <div class="service-tag tag-orange">Content AI</div>
             <div class="service-name">AI Content &amp; Copy</div>
             <p class="service-desc">Deploy AI-generated content that sounds like your brand — ad copy, email campaigns, blog posts, and social media at scale.</p>
             <ul class="service-features">
-              <li><span class="check">✓</span> Brand-voice AI training</li>
-              <li><span class="check">✓</span> Ad & landing page copy</li>
-              <li><span class="check">✓</span> Email campaign creation</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Brand-voice AI training</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Ad & landing page copy</li>
+              <li><span class="check"><svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Email campaign creation</li>
             </ul>
           </div>
 
@@ -1823,11 +1829,11 @@
             <h2 class="results-title">AI That Actually <span class="gradient-text">Moves the Needle</span></h2>
             <p class="results-body">We don't sell AI buzzwords — we deliver measurable outcomes. Our clients see real growth in revenue, leads, and time saved within the first 30 days.</p>
             <ul class="results-list">
-              <li><span class="check" style="width:20px;height:20px;">✓</span> Average 3x increase in qualified lead volume</li>
-              <li><span class="check" style="width:20px;height:20px;">✓</span> 60% reduction in time spent on manual tasks</li>
-              <li><span class="check" style="width:20px;height:20px;">✓</span> Sales funnel conversion rates up 150–300%</li>
-              <li><span class="check" style="width:20px;height:20px;">✓</span> 24/7 AI engagement — never miss a lead again</li>
-              <li><span class="check" style="width:20px;height:20px;">✓</span> ROI-positive within the first month, typically</li>
+              <li><span class="check" style="width:20px;height:20px;"><svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Average 3x increase in qualified lead volume</li>
+              <li><span class="check" style="width:20px;height:20px;"><svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> 60% reduction in time spent on manual tasks</li>
+              <li><span class="check" style="width:20px;height:20px;"><svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Sales funnel conversion rates up 150–300%</li>
+              <li><span class="check" style="width:20px;height:20px;"><svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> 24/7 AI engagement — never miss a lead again</li>
+              <li><span class="check" style="width:20px;height:20px;"><svg width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> ROI-positive within the first month, typically</li>
             </ul>
             <a href="#contact" class="btn-primary">Get My AI Audit →</a>
           </div>
@@ -1862,91 +1868,22 @@
           <h2 class="section-title">Built for <span class="gradient-text">Every Industry</span></h2>
         </div>
         <div class="industry-grid">
-          <div class="industry-item fade-up"><span class="industry-emoji">🏥</span><span class="industry-name">Healthcare</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">🏠</span><span class="industry-name">Real Estate</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">🛒</span><span class="industry-name">E-Commerce</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">⚖️</span><span class="industry-name">Legal Services</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">🍽️</span><span class="industry-name">Restaurants</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">💆</span><span class="industry-name">Beauty & Wellness</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">🏋️</span><span class="industry-name">Fitness</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">📚</span><span class="industry-name">Education</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">🔧</span><span class="industry-name">Home Services</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">💼</span><span class="industry-name">Consulting</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">🚗</span><span class="industry-name">Auto</span></div>
-          <div class="industry-item fade-up"><span class="industry-emoji">📱</span><span class="industry-name">Tech Startups</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Healthcare</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Real Estate</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">E-Commerce</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Legal Services</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Restaurants</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Beauty &amp; Wellness</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Fitness</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Education</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Home Services</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Consulting</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Automotive</span></div>
+          <div class="industry-item fade-up"><span class="industry-name">Tech Startups</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ─── PRICING ───────────────────────────────────────────────── -->
-    <section id="pricing">
-      <div class="container">
-        <div class="section-header fade-up">
-          <div class="section-label">Pricing</div>
-          <h2 class="section-title">Simple, <span class="gradient-text">Transparent Pricing</span></h2>
-          <p class="section-subtitle">No long-term contracts. No hidden fees. Start where you are and scale as you grow.</p>
-        </div>
-
-        <div class="pricing-grid">
-          <!-- Starter -->
-          <div class="price-card fade-up">
-            <div class="price-plan">Starter</div>
-            <div class="price-amount">
-              <span class="currency">$</span>997<span class="period">/mo</span>
-            </div>
-            <p class="price-desc">Perfect for businesses just beginning their AI journey. Get core automation and a high-converting funnel live fast.</p>
-            <ul class="price-features">
-              <li><span class="check">✓</span> 1 AI Sales Funnel</li>
-              <li><span class="check">✓</span> AI Chatbot Setup</li>
-              <li><span class="check">✓</span> Email Automation (up to 5 sequences)</li>
-              <li><span class="check">✓</span> CRM Integration</li>
-              <li><span class="check">✓</span> Monthly Performance Report</li>
-              <li><span class="check">✓</span> 30-day onboarding support</li>
-            </ul>
-            <a href="#contact" class="btn-price btn-price-outline">Get Started</a>
-          </div>
-
-          <!-- Growth (Popular) -->
-          <div class="price-card popular fade-up">
-            <div class="popular-badge">Most Popular</div>
-            <div class="price-plan">Growth</div>
-            <div class="price-amount">
-              <span class="currency">$</span>2,497<span class="period">/mo</span>
-            </div>
-            <p class="price-desc">Full-scale AI integration and marketing for businesses ready to grow aggressively. Our most popular plan.</p>
-            <ul class="price-features">
-              <li><span class="check">✓</span> Up to 3 AI Sales Funnels</li>
-              <li><span class="check">✓</span> Advanced AI Chatbot + Voice Bot</li>
-              <li><span class="check">✓</span> Unlimited Email & SMS Automation</li>
-              <li><span class="check">✓</span> Full Workflow Automation Build</li>
-              <li><span class="check">✓</span> AI Content Generation (monthly)</li>
-              <li><span class="check">✓</span> Predictive Analytics Dashboard</li>
-              <li><span class="check">✓</span> Weekly Strategy Calls</li>
-              <li><span class="check">✓</span> Priority Support</li>
-            </ul>
-            <a href="#contact" class="btn-price btn-price-filled">Get Started</a>
-          </div>
-
-          <!-- Enterprise -->
-          <div class="price-card fade-up">
-            <div class="price-plan">Enterprise</div>
-            <div class="price-amount" style="font-size: 40px; letter-spacing: -1px;">Custom</div>
-            <p class="price-desc">Bespoke AI solutions for established businesses with complex needs, multiple locations, or high-volume operations.</p>
-            <ul class="price-features">
-              <li><span class="check">✓</span> Unlimited AI Funnels & Systems</li>
-              <li><span class="check">✓</span> Custom AI Model Development</li>
-              <li><span class="check">✓</span> Dedicated AI Success Manager</li>
-              <li><span class="check">✓</span> Full Tech Stack Integration</li>
-              <li><span class="check">✓</span> White-label Options Available</li>
-              <li><span class="check">✓</span> SLA & Uptime Guarantees</li>
-            </ul>
-            <a href="#contact" class="btn-price btn-price-outline">Contact Us</a>
-          </div>
-        </div>
-
-        <p class="price-note">All plans include a <strong style="color: var(--text-secondary);">free AI audit</strong> to identify your highest-impact opportunities. No commitment required.</p>
-      </div>
-    </section>
 
     <!-- ─── TESTIMONIALS ──────────────────────────────────────────── -->
     <section id="testimonials">
@@ -1958,7 +1895,7 @@
 
         <div class="testimonials-grid">
           <div class="testi-card fade-up">
-            <div class="stars">★★★★★</div>
+            <div class="stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
             <p class="testi-text">"CNAX AI completely transformed how we handle leads. Our sales funnel went from converting at 2% to over 11% in just 6 weeks. The AI chatbot alone paid for the entire engagement in the first month."</p>
             <div class="testi-author">
               <div class="testi-avatar av-1">MR</div>
@@ -1970,7 +1907,7 @@
           </div>
 
           <div class="testi-card fade-up" style="transition-delay: 0.1s;">
-            <div class="stars">★★★★★</div>
+            <div class="stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
             <p class="testi-text">"I was skeptical about AI — thought it was just hype. CNAX showed me the difference between buzzwords and actual results. We automated our entire onboarding process and saved 20+ hours a week."</p>
             <div class="testi-author">
               <div class="testi-avatar av-2">SL</div>
@@ -1982,7 +1919,7 @@
           </div>
 
           <div class="testi-card fade-up" style="transition-delay: 0.2s;">
-            <div class="stars">★★★★★</div>
+            <div class="stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
             <p class="testi-text">"The AI marketing funnel CNAX built for us generated more qualified appointments in 30 days than we had in the previous 6 months combined. Worth every penny and then some."</p>
             <div class="testi-author">
               <div class="testi-avatar av-3">DJ</div>
@@ -2035,7 +1972,8 @@
               Book My Free AI Audit
             </a>
             <a href="tel:+1234567890" class="btn-secondary">
-              📞 Schedule a Call
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Schedule a Call
             </a>
           </div>
           <p class="cta-note">No credit card required · Free 30-min strategy session · Results guaranteed or your money back</p>
@@ -2054,21 +1992,21 @@
 
             <div class="contact-info">
               <div class="contact-info-item">
-                <div class="ci-icon blue">📧</div>
+                <div class="ci-icon blue"><svg width="18" height="18" fill="none" stroke="#818cf8" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                 <div>
                   <div class="ci-label">Email</div>
                   <div class="ci-value"><a href="mailto:hello@cnax.ai">hello@cnax.ai</a></div>
                 </div>
               </div>
               <div class="contact-info-item">
-                <div class="ci-icon cyan">💬</div>
+                <div class="ci-icon cyan"><svg width="18" height="18" fill="none" stroke="#22d3ee" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                 <div>
                   <div class="ci-label">Response Time</div>
                   <div class="ci-value">Within 2 hours (business hours)</div>
                 </div>
               </div>
               <div class="contact-info-item">
-                <div class="ci-icon purple">📅</div>
+                <div class="ci-icon purple"><svg width="18" height="18" fill="none" stroke="#c084fc" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
                 <div>
                   <div class="ci-label">Book a Call</div>
                   <div class="ci-value"><a href="#contact">Schedule a free 30-min strategy session</a></div>
@@ -2119,7 +2057,7 @@
               </button>
             </form>
             <div class="form-success" id="form-success">
-              <div class="success-icon">✓</div>
+              <div class="success-icon"><svg width="28" height="28" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
               <div class="success-title">You're on the list!</div>
               <p class="success-sub">We'll reach out within 2 hours to schedule your free AI audit. Check your inbox!</p>
             </div>
@@ -2139,9 +2077,9 @@
             </div>
             <p class="footer-desc">We help small businesses harness the power of artificial intelligence — from operations to marketing — to grow faster and work smarter.</p>
             <div class="footer-socials">
-              <a href="#" class="social-btn" aria-label="Twitter/X">𝕏</a>
+              <a href="#" class="social-btn" aria-label="Twitter/X">X</a>
               <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
-              <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+              <a href="#" class="social-btn" aria-label="Instagram">IG</a>
               <a href="#" class="social-btn" aria-label="Facebook">f</a>
             </div>
           </div>
@@ -2163,7 +2101,7 @@
               <li><a href="#process">How It Works</a></li>
               <li><a href="#results">Results</a></li>
               <li><a href="#testimonials">Case Studies</a></li>
-              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="blog.html">Blog</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -2343,7 +2281,6 @@
 
     // ─── HOME BLOG PREVIEW ────────────────────────────────────────────
     (async () => {
-      const EMOJI = { 'AI Integration':'🤖','Sales Funnels':'📈','Automation':'⚡','Marketing':'🎯','Analytics':'📊' };
       const grid = document.getElementById('home-blog-grid');
       if (!grid) return;
       try {
@@ -2352,11 +2289,10 @@
         if (!top3.length) { grid.innerHTML = '<p style="color:var(--text-muted);font-size:14px;grid-column:1/-1;text-align:center;padding:40px 0;">First posts coming soon...</p>'; return; }
         grid.innerHTML = top3.map(p => {
           const cc = p.category.toLowerCase().replace(/\s+/g,'-');
-          const emoji = EMOJI[p.category] || '🤖';
           const date = new Date(p.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
           return `<a href="blog.html" style="text-decoration:none;">
             <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:24px;overflow:hidden;transition:transform 0.3s,border-color 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(99,102,241,0.3)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.07)'">
-              <div style="height:140px;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(168,85,247,0.06))">${emoji}</div>
+              <div style="height:120px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(168,85,247,0.06));border-bottom:1px solid rgba(255,255,255,0.06)"><svg width="32" height="32" fill="none" stroke="#818cf8" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
               <div style="padding:22px 24px;">
                 <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#818cf8;margin-bottom:10px;">${p.category}</div>
                 <div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#f1f5f9;line-height:1.3;margin-bottom:10px;letter-spacing:-.3px;">${p.title}</div>
