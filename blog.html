@@ -606,6 +606,10 @@
     document.getElementById('modal-content').innerHTML = post.content;
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
+    // Inject Article schema dynamically
+    let schema = document.getElementById('article-schema');
+    if (!schema) { schema = document.createElement('script'); schema.id = 'article-schema'; schema.type = 'application/ld+json'; document.head.appendChild(schema); }
+    schema.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": post.title, "description": post.excerpt, "datePublished": post.date, "author": { "@type": "Person", "name": post.author || "CNAX AI" }, "publisher": { "@type": "Organization", "name": "CNAX AI", "url": "https://cnax.ai" } });
   }
 
   function closeModal(e) {
@@ -622,13 +626,45 @@
   loadPosts();
 </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9EK57TFJ9"></script>
+<!-- ─── COOKIE CONSENT ──────────────────────────────────────────── -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:20px 24px;background:rgba(13,13,31,0.97);border-top:1px solid rgba(99,102,241,0.25);backdrop-filter:blur(12px);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <p style="font-size:14px;color:#94a3b8;margin:0;flex:1;min-width:260px;">We use cookies to analyze site traffic and improve your experience. <a href="#" style="color:#6366f1;">Learn more</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="cookie-decline" style="padding:9px 18px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:none;color:#94a3b8;font-size:13px;cursor:pointer;">Essential Only</button>
+      <button id="cookie-accept" style="padding:9px 18px;border-radius:8px;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;font-size:13px;font-weight:600;cursor:pointer;">Accept All</button>
+    </div>
+  </div>
+</div>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-E9EK57TFJ9');
+  (function() {
+    var consent = localStorage.getItem('cx-cookie-consent');
+    if (!consent) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+      localStorage.setItem('cx-cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+      loadAnalytics();
+    });
+    document.getElementById('cookie-decline').addEventListener('click', function() {
+      localStorage.setItem('cx-cookie-consent', 'declined');
+      document.getElementById('cookie-banner').style.display = 'none';
+    });
+    if (consent === 'accepted') loadAnalytics();
+    function loadAnalytics() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-E9EK57TFJ9';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E9EK57TFJ9');
+    }
+  })();
 </script>
 
 <!--Start of Tawk.to Script-->

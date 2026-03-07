@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | CNAX AI</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="Meet the team behind CNAX AI — Collin Kendra, Nathan Bott, and Alex Butera. We help small businesses grow faster with AI integration and intelligent sales systems." />
+  <meta property="og:title" content="About Us | CNAX AI" />
+  <meta property="og:description" content="Meet the team behind CNAX AI. We help small businesses harness the power of artificial intelligence." />
+  <meta property="og:image" content="https://cnax.ai/api/og-image" />
+  <meta property="og:url" content="https://cnax.ai/about.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About CNAX AI",
+    "url": "https://cnax.ai/about.html",
+    "description": "The team behind CNAX AI — AI integration and marketing automation for small businesses.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CNAX AI",
+      "url": "https://cnax.ai",
+      "email": "collin@cnax.ai",
+      "sameAs": [
+        "https://www.facebook.com/people/CNAX-AI/61587135532942/",
+        "https://www.instagram.com/cnax.ai"
+      ]
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-primary: #03030a; --bg-secondary: #07071a;
+      --bg-card: rgba(255,255,255,0.03); --border: rgba(255,255,255,0.08);
+      --text-primary: #f1f5f9; --text-secondary: #94a3b8; --text-muted: #475569;
+      --accent-blue: #6366f1; --accent-purple: #8b5cf6; --accent-cyan: #06b6d4;
+      --accent-green: #34d399; --radius-xl: 20px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg-primary); color: var(--text-primary); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(3,3,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: white; }
+    .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
+    .logo-text span { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-cta { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; }
+
+    /* HERO */
+    .hero { padding: 100px 0 80px; text-align: center; }
+    .hero-label { display: inline-block; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25); color: var(--accent-blue); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 5vw, 58px); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 18px; color: var(--text-secondary); max-width: 620px; margin: 0 auto; }
+
+    /* MISSION */
+    .mission { padding: 80px 0; background: var(--bg-secondary); }
+    .mission-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .mission h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px,4vw,40px); font-weight: 700; margin-bottom: 20px; }
+    .mission h2 span { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .mission p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .mission-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .mission-stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .mission-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .mission-stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+    /* TEAM */
+    .team { padding: 100px 0; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+    .team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+    .team-card:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-4px); }
+    .team-avatar { height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .avatar-initials { width: 96px; height: 96px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: white; }
+    .team-body { padding: 28px; }
+    .team-name { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+    .team-role { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 16px; }
+    .team-bio { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+    .team-links { display: flex; gap: 10px; }
+    .team-link { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; transition: all 0.2s; }
+    .team-link:hover { color: var(--accent-blue); border-color: rgba(99,102,241,0.35); }
+    .team-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .skill-tag { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15); color: var(--accent-blue); }
+
+    /* VALUES */
+    .values { padding: 80px 0; background: var(--bg-secondary); }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .value-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; }
+    .value-icon { width: 48px; height: 48px; background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .value-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .value-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* SOFTWARE */
+    .software { padding: 80px 0; }
+    .software-inner { background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(139,92,246,0.06)); border: 1px solid rgba(99,102,241,0.2); border-radius: 24px; padding: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .software h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px,3vw,36px); font-weight: 700; margin-bottom: 16px; }
+    .software h2 span { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .software p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; }
+    .software-products { display: flex; flex-direction: column; gap: 16px; }
+    .software-product { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+    .product-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-green); flex-shrink: 0; box-shadow: 0 0 8px rgba(52,211,153,0.5); }
+    .product-name { font-weight: 600; font-size: 14px; }
+    .product-desc { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px solid rgba(99,102,241,0.4); color: var(--text-primary); padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 600; transition: all 0.2s; }
+    .btn-outline:hover { background: rgba(99,102,241,0.1); }
+
+    /* CTA */
+    .cta-section { padding: 80px 0 120px; }
+    .cta-box { background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(99,102,241,0.25); border-radius: 24px; padding: 64px 40px; text-align: center; }
+    .cta-box h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px,4vw,40px); font-weight: 700; margin-bottom: 16px; }
+    .cta-box p { font-size: 17px; color: var(--text-secondary); margin-bottom: 32px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 16px 32px; border-radius: 12px; font-size: 16px; font-weight: 600; }
+
+    /* FOOTER */
+    .page-footer { border-top: 1px solid var(--border); padding: 32px 0; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+
+    @media (max-width: 900px) {
+      .mission-inner, .software-inner { grid-template-columns: 1fr; }
+      .team-grid, .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-mark">CX</div>
+      <span class="logo-text">CNAX<span> AI</span></span>
+    </a>
+    <a href="index.html" style="font-size:14px;color:var(--text-secondary);display:flex;align-items:center;gap:6px;">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to main site
+    </a>
+    <a href="index.html#contact" class="btn-cta">Get Free Audit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Our Team</div>
+    <h1>Built by Operators.<br /><span>Driven by Results.</span></h1>
+    <p>We're not a big agency with account managers who've never run a business. We're a small, focused team that has built and scaled companies — and we use AI to help others do the same.</p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="container">
+    <div class="mission-inner">
+      <div>
+        <div style="display:inline-block;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:var(--accent-blue);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px;">Our Mission</div>
+        <h2>AI Should Work for <span>Small Businesses</span> Too</h2>
+        <p>For too long, the most powerful AI tools have been reserved for enterprise companies with massive budgets and dedicated technology teams. We started CNAX AI because we believe that's wrong.</p>
+        <p>Every small business deserves the same competitive advantages that Fortune 500 companies have — faster lead response, smarter marketing, automated operations, and data-driven decisions. We make that accessible, practical, and affordable.</p>
+        <p>We don't just implement technology. We solve business problems. Every engagement starts with your goals and ends with measurable results.</p>
+      </div>
+      <div class="mission-stats">
+        <div class="mission-stat">
+          <div class="mission-stat-num">$2.4M+</div>
+          <div class="mission-stat-label">Revenue generated for clients</div>
+        </div>
+        <div class="mission-stat">
+          <div class="mission-stat-num">90 days</div>
+          <div class="mission-stat-label">Avg. time to major results</div>
+        </div>
+        <div class="mission-stat">
+          <div class="mission-stat-num">340%</div>
+          <div class="mission-stat-label">Avg. lead conversion lift</div>
+        </div>
+        <div class="mission-stat">
+          <div class="mission-stat-num">48h</div>
+          <div class="mission-stat-label">Avg. time to first automation live</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="container">
+    <div style="text-align:center;">
+      <div style="display:inline-block;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:var(--accent-blue);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px;">The Team</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:16px;">The People Behind <span style="background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Your Results</span></h2>
+      <p style="font-size:17px;color:var(--text-secondary);max-width:560px;margin:0 auto;">A focused team with deep expertise in AI, automation, marketing, and software — all pointed at one goal: growing your business.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- Collin Kendra -->
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.12));">
+          <div class="avatar-initials" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">CK</div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Collin Kendra</div>
+          <div class="team-role">Founder & CEO</div>
+          <p class="team-bio">Collin leads strategy, client relationships, and product direction at CNAX AI. With a background in building and scaling businesses, he founded CNAX AI to make enterprise-grade AI accessible to small business owners who are ready to compete at the next level. He also co-founded CNAX Software, a professional desktop trading tools platform.</p>
+          <div class="team-skills">
+            <span class="skill-tag">AI Strategy</span>
+            <span class="skill-tag">Business Development</span>
+            <span class="skill-tag">Sales Systems</span>
+            <span class="skill-tag">Automation</span>
+          </div>
+          <div class="team-links" style="margin-top:16px;">
+            <a href="https://www.linkedin.com/in/ckend/" target="_blank" rel="noopener" class="team-link">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:collin@cnax.ai" class="team-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              collin@cnax.ai
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nathan Bott -->
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,rgba(6,182,212,0.12),rgba(99,102,241,0.12));">
+          <div class="avatar-initials" style="background:linear-gradient(135deg,#06b6d4,#6366f1);">NB</div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Nathan Bott</div>
+          <div class="team-role">Co-Founder & Head of Automation</div>
+          <p class="team-bio">Nathan is the systems architect behind CNAX AI's automation and workflow solutions. He specializes in designing end-to-end AI pipelines that connect the tools businesses already use — eliminating manual work and creating the infrastructure for scalable, predictable growth.</p>
+          <div class="team-skills">
+            <span class="skill-tag">Workflow Automation</span>
+            <span class="skill-tag">CRM Integration</span>
+            <span class="skill-tag">Systems Design</span>
+            <span class="skill-tag">Analytics</span>
+          </div>
+          <div class="team-links" style="margin-top:16px;">
+            <a href="https://www.linkedin.com/in/nathan-bott-252b111b7/" target="_blank" rel="noopener" class="team-link">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:nate@cnax.ai" class="team-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              nate@cnax.ai
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alex Butera -->
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(52,211,153,0.12));">
+          <div class="avatar-initials" style="background:linear-gradient(135deg,#8b5cf6,#34d399);">AB</div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Alex Butera</div>
+          <div class="team-role">Co-Founder & Head of Growth</div>
+          <p class="team-bio">Alex leads CNAX AI's marketing strategy, sales funnel architecture, and client growth programs. His expertise is in building AI-powered revenue systems — from lead generation and qualification to multi-channel nurture campaigns that convert prospects into long-term clients.</p>
+          <div class="team-skills">
+            <span class="skill-tag">Sales Funnels</span>
+            <span class="skill-tag">AI Marketing</span>
+            <span class="skill-tag">Lead Generation</span>
+            <span class="skill-tag">Growth Strategy</span>
+          </div>
+          <div class="team-links" style="margin-top:16px;">
+            <a href="https://www.linkedin.com/in/alexbutera/" target="_blank" rel="noopener" class="team-link">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:alex@cnax.ai" class="team-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              alex@cnax.ai
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="container">
+    <div style="text-align:center;">
+      <div style="display:inline-block;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:var(--accent-blue);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px;">How We Work</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:16px;">What We Stand For</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg width="22" height="22" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Results First, Always</h3>
+        <p>We don't charge for activity — we charge for outcomes. Every engagement is scoped around specific, measurable business results. If we can't define success in numbers, we don't start the project.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="22" height="22" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h3>No Jargon, No Hype</h3>
+        <p>The AI space is full of buzzwords that sound impressive but mean nothing. We speak plainly, set realistic expectations, and focus on the practical applications that move the needle for real businesses.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="22" height="22" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Small Business Focus</h3>
+        <p>We work exclusively with small and mid-sized businesses. That means we understand your resource constraints, your team dynamics, and what "success" actually looks like at your scale — not an enterprise's.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CNAX SOFTWARE -->
+<section class="software">
+  <div class="container">
+    <div class="software-inner">
+      <div>
+        <div style="display:inline-block;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:var(--accent-blue);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px;">Sister Company</div>
+        <h2>Also Powering Traders with <span>CNAX Software</span></h2>
+        <p>The same team behind CNAX AI also builds professional-grade desktop trading software. From AI-powered crypto terminals to institutional-grade options flow analysis — we build tools for serious traders and analysts who demand speed, precision, and real intelligence.</p>
+        <a href="https://cnaxsoftware.pro" target="_blank" rel="noopener" class="btn-outline">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Visit cnaxsoftware.pro
+        </a>
+      </div>
+      <div class="software-products">
+        <div class="software-product">
+          <div class="product-dot"></div>
+          <div>
+            <div class="product-name">Crypto Terminal Pro <span style="font-size:11px;color:var(--accent-green);margin-left:6px;">LIVE</span></div>
+            <div class="product-desc">Bloomberg-style terminal for crypto futures. AI signal engine, live order book, funding rates, P&L tracking. 15+ pairs, sub-100ms latency.</div>
+          </div>
+        </div>
+        <div class="software-product">
+          <div class="product-dot" style="background:var(--accent-blue);box-shadow:0 0 8px rgba(99,102,241,0.5);"></div>
+          <div>
+            <div class="product-name">Stock & Options Analyzer <span style="font-size:11px;color:var(--accent-blue);margin-left:6px;">NEW</span></div>
+            <div class="product-desc">Unusual options flow, dark pool block trades, live Greeks, sector heatmaps. 500+ tickers, 60-second IV refresh.</div>
+          </div>
+        </div>
+        <div style="background:rgba(99,102,241,0.04);border:1px solid rgba(99,102,241,0.12);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text-muted);margin-top:4px;">
+          Available on <strong style="color:var(--text-secondary);">Windows & macOS</strong> · No API keys required · Instant license delivery · Basic, Pro & Lifetime tiers
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Ready to Work With Us?</h2>
+      <p>Book a free AI audit and let's map out exactly where AI can move the needle for your business.</p>
+      <a href="index.html#contact" class="btn-primary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Get My Free AI Audit
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="page-footer">
+      <span>© 2026 CNAX AI. All rights reserved.</span>
+      <a href="index.html" style="color:var(--text-muted);">← Back to main site</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── COOKIE CONSENT ──────────────────────────────────────────── -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:20px 24px;background:rgba(13,13,31,0.97);border-top:1px solid rgba(99,102,241,0.25);backdrop-filter:blur(12px);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <p style="font-size:14px;color:#94a3b8;margin:0;flex:1;min-width:260px;">We use cookies to analyze site traffic and improve your experience. <a href="#" style="color:#6366f1;">Learn more</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="cookie-decline" style="padding:9px 18px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:none;color:#94a3b8;font-size:13px;cursor:pointer;">Essential Only</button>
+      <button id="cookie-accept" style="padding:9px 18px;border-radius:8px;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;font-size:13px;font-weight:600;cursor:pointer;">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    var consent = localStorage.getItem('cx-cookie-consent');
+    if (!consent) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+      localStorage.setItem('cx-cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+      loadAnalytics();
+    });
+    document.getElementById('cookie-decline').addEventListener('click', function() {
+      localStorage.setItem('cx-cookie-consent', 'declined');
+      document.getElementById('cookie-banner').style.display = 'none';
+    });
+    if (consent === 'accepted') loadAnalytics();
+    function loadAnalytics() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-E9EK57TFJ9';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E9EK57TFJ9');
+    }
+  })();
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69ab62a4f667fc1c3721ef80/1jj2nikmu';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
