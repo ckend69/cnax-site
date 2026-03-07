@@ -402,7 +402,7 @@
     <div class="container">
       <div class="section-label">AI Insights</div>
       <h1>The <span class="gradient-text">CNAX AI</span> Blog</h1>
-      <p>Strategies, guides, and insights to help small businesses harness the power of AI — published twice daily.</p>
+      <p>Strategies, guides, and insights to help small businesses harness the power of AI.</p>
     </div>
   </div>
 
@@ -433,7 +433,7 @@
 
   <div class="container">
     <div class="blog-footer">
-      <span class="blog-footer-text">© 2025 CNAX AI — Published with intelligence.</span>
+      <span class="blog-footer-text">© 2026 CNAX AI</span>
       <a href="index.html" class="blog-footer-text">← Back to main site</a>
     </div>
   </div>
@@ -533,7 +533,7 @@
             <div class="post-title">${post.title}</div>
             <div class="post-excerpt">${post.excerpt}</div>
             <div class="post-footer">
-              <span class="post-date">${formatDate(post.date)}</span>
+              <span class="post-date">${post.author ? `By ${post.author} · ` : ''}${formatDate(post.date)}</span>
               <span class="post-link">Read article →</span>
             </div>
           </div>
@@ -599,7 +599,8 @@
     document.getElementById('modal-meta').innerHTML = `
       <span class="post-cat cat-tag-${cc}">${post.category || 'AI Integration'}</span>
       <span class="post-read-time" style="color:var(--text-muted);font-size:13px;">${post.readTime || '5 min read'}</span>
-      <span class="post-read-time" style="color:var(--text-muted);font-size:13px;">${formatDate(post.date)}</span>`;
+      <span class="post-read-time" style="color:var(--text-muted);font-size:13px;">${formatDate(post.date)}</span>
+      ${post.author ? `<span style="color:var(--text-muted);font-size:13px;">By <strong style="color:var(--text-secondary)">${post.author}</strong></span>` : ''}`;
     document.getElementById('modal-title').textContent = post.title;
     document.getElementById('modal-excerpt').textContent = post.excerpt;
     document.getElementById('modal-content').innerHTML = post.content;

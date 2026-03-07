@@ -5,6 +5,8 @@ const REPO_OWNER = 'ckend69';
 const REPO_NAME  = 'cnax-site';
 const FILE_PATH  = 'posts.json';
 
+const AUTHORS = ['Collin Kendra', 'Nathan Bott', 'Alex Butera'];
+
 const TOPICS = [
   { title: "How AI Integration Can Triple Revenue for Small Businesses", category: "AI Integration" },
   { title: "Building an AI-Powered Sales Funnel That Converts 24/7", category: "Sales Funnels" },
@@ -151,6 +153,7 @@ export default async function handler(req, res) {
       category: article.category || topic.category,
       date: now.toISOString(),
       slug: slugify(article.title || topic.title),
+      author: AUTHORS[Math.floor(Math.random() * AUTHORS.length)],
     };
 
     // Load, prepend, save
