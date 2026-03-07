@@ -1480,6 +1480,8 @@
       .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .lead-magnet-wrap { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .sister-wrap { grid-template-columns: 1fr !important; gap: 40px !important; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .hero-stats { gap: 24px; }
       .industry-grid { grid-template-columns: repeat(3, 1fr); }
@@ -2250,6 +2252,105 @@
       </div>
     </section>
 
+    <!-- ─── LEAD MAGNET ─────────────────────────────────────────────── -->
+    <section style="padding: 100px 0; background: var(--bg-secondary); border-top: 1px solid var(--border);">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="lead-magnet-wrap">
+          <!-- Left: copy -->
+          <div class="fade-up">
+            <div class="section-label">Free Resource</div>
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.5vw,44px);font-weight:700;letter-spacing:-1.5px;line-height:1.15;margin:16px 0 20px;">The Small Business<br><span class="gradient-text">AI Readiness Guide</span></h2>
+            <p style="color:var(--text-secondary);font-size:17px;line-height:1.75;margin-bottom:28px;">Not sure if your business is ready for AI? This free guide walks you through a 5-pillar readiness assessment, the 3 best first AI projects, and the mistakes that slow most businesses down.</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
+              <li style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:15px;">
+                <svg width="18" height="18" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                5-Pillar AI Readiness Assessment
+              </li>
+              <li style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:15px;">
+                <svg width="18" height="18" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                The 3 Best First AI Projects for SMBs
+              </li>
+              <li style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:15px;">
+                <svg width="18" height="18" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Common Mistakes to Avoid
+              </li>
+              <li style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:15px;">
+                <svg width="18" height="18" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                12-Minute Read · Free · No Fluff
+              </li>
+            </ul>
+            <button onclick="openLeadModal()" class="btn-primary" style="font-size:15px;padding:14px 30px;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Get the Free Guide
+            </button>
+          </div>
+          <!-- Right: guide preview card -->
+          <div class="fade-up" style="position:relative;">
+            <div style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(168,85,247,0.08));border:1px solid rgba(99,102,241,0.25);border-radius:20px;padding:36px;position:relative;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan),var(--accent-purple));"></div>
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+                <div style="width:44px;height:44px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                  <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:11px;color:var(--text-muted);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Free Guide · 2026 Edition</div>
+                  <div style="font-size:15px;font-weight:700;color:var(--text-primary);">AI Readiness Guide</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text-secondary);">Part 1: The 5-Pillar Readiness Assessment</div>
+                <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text-secondary);">Part 2: Scoring Your AI Readiness</div>
+                <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text-secondary);">Part 3: Your 3 Best First AI Projects</div>
+                <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text-secondary);">Part 4: Mistakes to Avoid</div>
+                <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text-secondary);">Part 5: Your Personalised Next Steps</div>
+              </div>
+              <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+                <div style="width:28px;height:28px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:white;">CX</div>
+                <span style="font-size:12px;color:var(--text-muted);">Published by CNAX AI · Free Download</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lead Magnet Modal -->
+    <div id="lead-modal-overlay" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;" onclick="if(event.target===this)closeLeadModal()">
+      <div style="background:#0d0d1f;border:1px solid rgba(99,102,241,0.3);border-radius:20px;padding:44px;max-width:480px;width:90%;position:relative;box-shadow:0 0 80px rgba(99,102,241,0.2);">
+        <button onclick="closeLeadModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:20px;line-height:1;">✕</button>
+        <!-- Default state -->
+        <div id="lead-form-state">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">Get the Free AI Readiness Guide</h3>
+          <p style="color:var(--text-secondary);font-size:14px;margin-bottom:28px;line-height:1.6;">We'll send it straight to your inbox — plus a copy goes to your browser instantly.</p>
+          <form id="lead-form" onsubmit="submitLead(event)">
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <input id="lead-name" type="text" placeholder="Your first name" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:13px 16px;color:var(--text-primary);font-size:15px;font-family:'Inter',sans-serif;outline:none;width:100%;" />
+              <input id="lead-email" type="email" placeholder="Your email address" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:13px 16px;color:var(--text-primary);font-size:15px;font-family:'Inter',sans-serif;outline:none;width:100%;" />
+              <button type="submit" id="lead-submit-btn" class="btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:15px;margin-top:4px;">
+                Send Me the Guide
+              </button>
+            </div>
+          </form>
+          <p style="color:var(--text-muted);font-size:12px;margin-top:14px;text-align:center;">No spam. Unsubscribe any time.</p>
+        </div>
+        <!-- Success state -->
+        <div id="lead-success-state" style="display:none;text-align:center;">
+          <div style="width:56px;height:56px;background:rgba(16,185,129,0.12);border:2px solid #10b981;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg width="24" height="24" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px;">You're all set!</h3>
+          <p style="color:var(--text-secondary);font-size:14px;margin-bottom:28px;line-height:1.6;">Check your inbox — the guide is on its way. You can also access it right now:</p>
+          <a id="lead-guide-link" href="/ai-readiness-guide.html" target="_blank" class="btn-primary" style="display:inline-flex;justify-content:center;gap:8px;padding:14px 28px;font-size:15px;">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Open the Guide
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- ─── CTA ───────────────────────────────────────────────────── -->
     <section id="cta">
       <div class="container">
@@ -3003,6 +3104,35 @@
     document.getElementById('exit-overlay').addEventListener('click', (e) => {
       if (e.target === document.getElementById('exit-overlay')) closeExit();
     });
+
+    // ─── LEAD MAGNET MODAL ───────────────────────────────────────────
+    function openLeadModal() {
+      const overlay = document.getElementById('lead-modal-overlay');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLeadModal() {
+      const overlay = document.getElementById('lead-modal-overlay');
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    async function submitLead(e) {
+      e.preventDefault();
+      const name  = document.getElementById('lead-name').value.trim();
+      const email = document.getElementById('lead-email').value.trim();
+      const btn   = document.getElementById('lead-submit-btn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email }),
+        });
+      } catch (_) {}
+      document.getElementById('lead-form-state').style.display = 'none';
+      document.getElementById('lead-success-state').style.display = 'block';
+    }
 
     // ─── FAQ ACCORDION ───────────────────────────────────────────────
     function toggleFaq(btn) {

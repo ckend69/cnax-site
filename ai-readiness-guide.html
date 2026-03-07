@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Small Business AI Readiness Guide | CNAX AI</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="The Small Business AI Readiness Guide: How to Know If You're Ready for AI (And What to Do First). A practical framework from the team at CNAX AI." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://cnax.ai/ai-readiness-guide.html" />
+  <meta property="og:title" content="Small Business AI Readiness Guide | CNAX AI" />
+  <meta property="og:description" content="A practical framework for small businesses to assess their AI readiness and take the right first steps. From the team at CNAX AI." />
+  <meta property="og:image" content="https://cnax.ai/api/og-image" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="CNAX AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Small Business AI Readiness Guide | CNAX AI" />
+  <meta name="twitter:description" content="A practical framework for small businesses to assess their AI readiness and take the right first steps." />
+  <meta name="twitter:image" content="https://cnax.ai/api/og-image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary:    #03030a;
+      --bg-secondary:  #07071a;
+      --bg-card:       rgba(255,255,255,0.035);
+      --bg-card-hover: rgba(255,255,255,0.055);
+      --border:        rgba(255,255,255,0.07);
+      --border-glow:   rgba(99,102,241,0.35);
+      --accent-blue:   #6366f1;
+      --accent-cyan:   #06b6d4;
+      --accent-purple: #a855f7;
+      --accent-green:  #10b981;
+      --accent-amber:  #f59e0b;
+      --text-primary:  #f1f5f9;
+      --text-secondary:#94a3b8;
+      --text-muted:    #475569;
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  20px;
+      --radius-xl:  28px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NOISE OVERLAY ──────────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap { position: relative; z-index: 1; }
+
+    /* ─── GUIDE NAV ──────────────────────────────────────────────────── */
+    .guide-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(3,3,10,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+    }
+
+    .guide-nav-inner {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .logo-text span {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text-primary); }
+
+    .nav-back svg { width: 16px; height: 16px; }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 0 20px rgba(99,102,241,0.3);
+    }
+
+    .btn-print:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-print svg { width: 15px; height: 15px; }
+
+    /* ─── HERO BANNER ────────────────────────────────────────────────── */
+    .guide-hero {
+      background: linear-gradient(160deg, rgba(99,102,241,0.12) 0%, rgba(6,182,212,0.06) 40%, rgba(168,85,247,0.08) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 24px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .guide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      color: var(--accent-blue);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .guide-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+    }
+
+    .guide-hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(26px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.18;
+      max-width: 820px;
+      margin: 0 auto 20px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .guide-hero .subtitle {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    .guide-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .guide-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guide-meta-item svg { width: 14px; height: 14px; color: var(--accent-cyan); }
+
+    .guide-meta-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+
+    /* ─── MAIN LAYOUT ────────────────────────────────────────────────── */
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      align-items: start;
+    }
+
+    /* ─── SIDEBAR / TOC ──────────────────────────────────────────────── */
+    .guide-toc {
+      position: sticky;
+      top: 80px;
+      padding-right: 32px;
+    }
+
+    .toc-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toc-list a {
+      display: block;
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover,
+    .toc-list a.active {
+      color: var(--text-primary);
+      background: rgba(99,102,241,0.08);
+      border-left-color: var(--accent-blue);
+    }
+
+    .toc-list .toc-part {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 10px 10px 4px;
+      cursor: default;
+    }
+
+    .toc-list .toc-part:hover {
+      background: none;
+      border-left-color: transparent;
+      color: var(--text-muted);
+    }
+
+    .toc-cta {
+      margin-top: 28px;
+      padding: 16px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(168,85,247,0.08));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: var(--radius-md);
+    }
+
+    .toc-cta p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .toc-cta a {
+      display: block;
+      text-align: center;
+      padding: 9px 14px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.2s;
+    }
+
+    .toc-cta a:hover { opacity: 0.85; }
+
+    /* ─── GUIDE CONTENT ──────────────────────────────────────────────── */
+    .guide-content {
+      min-width: 0;
+    }
+
+    .guide-section {
+      margin-bottom: 72px;
+    }
+
+    /* Section divider */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan), transparent);
+      margin-bottom: 40px;
+      opacity: 0.4;
+    }
+
+    .part-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      padding: 5px 14px;
+      border: 1px solid rgba(6,182,212,0.22);
+      border-radius: 100px;
+      background: rgba(6,182,212,0.06);
+      margin-bottom: 16px;
+    }
+
+    .guide-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    .guide-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      margin-top: 36px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .h3-icon {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      font-size: 13px;
+    }
+
+    .guide-content p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .guide-content p strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Icon bullet list */
+    .icon-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .icon-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .icon-list li .li-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 1px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+
+    .icon-list li .li-icon.purple {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    }
+
+    .icon-list li .li-icon.cyan {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+    }
+
+    .icon-list li .li-icon.amber {
+      background: linear-gradient(135deg, var(--accent-amber), #ef4444);
+    }
+
+    .icon-list li strong {
+      color: var(--text-primary);
+    }
+
+    /* Question list */
+    .question-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .question-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 12px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .question-list li .q-num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(99,102,241,0.15);
+      border: 1px solid rgba(99,102,241,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-top: 1px;
+    }
+
+    /* Callout / stat box */
+    .callout {
+      background: rgba(6,182,212,0.06);
+      border: 1px solid rgba(6,182,212,0.22);
+      border-left: 3px solid var(--accent-cyan);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      margin: 28px 0;
+    }
+
+    .callout.purple {
+      background: rgba(168,85,247,0.06);
+      border-color: rgba(168,85,247,0.22);
+      border-left-color: var(--accent-purple);
+    }
+
+    .callout.blue {
+      background: rgba(99,102,241,0.07);
+      border-color: rgba(99,102,241,0.22);
+      border-left-color: var(--accent-blue);
+    }
+
+    .callout.green {
+      background: rgba(16,185,129,0.06);
+      border-color: rgba(16,185,129,0.2);
+      border-left-color: var(--accent-green);
+    }
+
+    .callout.amber {
+      background: rgba(245,158,11,0.06);
+      border-color: rgba(245,158,11,0.2);
+      border-left-color: var(--accent-amber);
+    }
+
+    .callout-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+    }
+
+    .callout.purple .callout-label { color: var(--accent-purple); }
+    .callout.blue .callout-label { color: var(--accent-blue); }
+    .callout.green .callout-label { color: var(--accent-green); }
+    .callout.amber .callout-label { color: var(--accent-amber); }
+
+    .callout p {
+      font-size: 15px !important;
+      margin-bottom: 0 !important;
+      color: var(--text-secondary);
+    }
+
+    .callout p strong { color: var(--text-primary); }
+
+    /* Stat grid */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Pillar card */
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      transition: border-color 0.25s;
+    }
+
+    .pillar-card:hover {
+      border-color: rgba(99,102,241,0.3);
+    }
+
+    .pillar-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .pillar-num {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .pillar-num.blue  { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); }
+    .pillar-num.purple { background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)); }
+    .pillar-num.cyan   { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green)); }
+    .pillar-num.amber  { background: linear-gradient(135deg, var(--accent-amber), #f97316); }
+    .pillar-num.green  { background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); }
+
+    .pillar-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .pillar-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Score table */
+    .score-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .score-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: rgba(99,102,241,0.08);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .score-table td {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .score-table tr:hover td { background: var(--bg-card); }
+
+    .score-range {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .score-range.getting-started { color: var(--accent-amber); }
+    .score-range.ready           { color: var(--accent-cyan); }
+    .score-range.scale           { color: var(--accent-purple); }
+
+    .score-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .score-badge.getting-started { background: rgba(245,158,11,0.12); color: var(--accent-amber); }
+    .score-badge.ready           { background: rgba(6,182,212,0.12); color: var(--accent-cyan); }
+    .score-badge.scale           { background: rgba(168,85,247,0.12); color: var(--accent-purple); }
+
+    /* Project cards */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(99,102,241,0.3);
+      transform: translateY(-2px);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .project-card.proj-1::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)); }
+    .project-card.proj-2::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue)); }
+    .project-card.proj-3::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green)); }
+
+    .project-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .project-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      margin-top: 0;
+      display: block;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .project-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .project-meta-item .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+    }
+
+    /* Mistake cards */
+    .mistake-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .mistake-card:hover {
+      border-color: rgba(239,68,68,0.25);
+    }
+
+    .mistake-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .mistake-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .mistake-card p {
+      font-size: 14px !important;
+      color: var(--text-secondary);
+      margin-bottom: 0 !important;
+      line-height: 1.6;
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(168,85,247,0.1) 50%, rgba(6,182,212,0.08) 100%);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 0 30px rgba(99,102,241,0.3);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(99,102,241,0.3);
+    }
+
+    /* Team contacts */
+    .team-contacts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .team-contact {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .team-contact:hover { border-color: rgba(99,102,241,0.3); }
+
+    .team-contact-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .team-contact-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .team-contact-email {
+      font-size: 13px;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .team-contact-email:hover { opacity: 0.8; }
+
+    /* Services chips */
+    .services-chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .chip-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    /* Guide footer */
+    .guide-footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .guide-footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .guide-footer a {
+      color: var(--accent-blue);
+    }
+
+    .guide-footer a:hover { opacity: 0.8; }
+
+    /* ─── MOBILE TOGGLE ──────────────────────────────────────────────── */
+    .toc-toggle {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      width: 100%;
+    }
+
+    .toc-toggle svg { width: 16px; height: 16px; color: var(--text-muted); transition: transform 0.2s; }
+    .toc-toggle.open svg { transform: rotate(180deg); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .guide-layout {
+        grid-template-columns: 1fr;
+        padding: 32px 20px 60px;
+      }
+
+      .guide-toc {
+        position: static;
+        padding-right: 0;
+        margin-bottom: 0;
+      }
+
+      .toc-toggle { display: flex; }
+
+      .toc-collapsible {
+        display: none;
+        overflow: hidden;
+      }
+
+      .toc-collapsible.open {
+        display: block;
+      }
+
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .team-contacts { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      .guide-meta { gap: 12px; }
+      .guide-meta-dot { display: none; }
+      .cta-section { padding: 36px 20px; }
+    }
+
+    /* ─── PRINT STYLES ───────────────────────────────────────────────── */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111111 !important;
+      }
+
+      body::before { display: none; }
+
+      .guide-nav,
+      .guide-toc,
+      .btn-print,
+      .toc-toggle,
+      #cookie-banner,
+      #tawk-widget { display: none !important; }
+
+      .guide-hero {
+        background: linear-gradient(160deg, #eef2ff 0%, #f0f9ff 100%) !important;
+        border-bottom: 2px solid #e2e8f0 !important;
+        padding: 40px 24px !important;
+      }
+
+      .guide-hero h1 { color: #1e293b !important; }
+
+      .gradient-text {
+        background: #4f46e5 !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+      }
+
+      .guide-hero .subtitle,
+      .guide-meta { color: #64748b !important; }
+
+      .guide-layout {
+        grid-template-columns: 1fr !important;
+        max-width: 760px !important;
+        padding: 32px 0 !important;
+      }
+
+      .guide-content h2 { color: #1e293b !important; page-break-after: avoid; }
+      .guide-content h3 { color: #1e293b !important; page-break-after: avoid; }
+      .guide-content p   { color: #475569 !important; }
+      .guide-content p strong { color: #1e293b !important; }
+
+      .section-divider {
+        background: #e2e8f0 !important;
+        opacity: 1 !important;
+      }
+
+      .callout {
+        border: 1px solid #cbd5e1 !important;
+        border-left: 3px solid #4f46e5 !important;
+        background: #f8fafc !important;
+      }
+
+      .callout.purple { border-left-color: #9333ea !important; }
+      .callout.green  { border-left-color: #10b981 !important; }
+      .callout.amber  { border-left-color: #d97706 !important; }
+
+      .callout-label { color: #4f46e5 !important; }
+      .callout.purple .callout-label { color: #9333ea !important; }
+
+      .callout p { color: #475569 !important; }
+      .callout p strong { color: #1e293b !important; }
+
+      .pillar-card,
+      .project-card,
+      .mistake-card,
+      .stat-card,
+      .team-contact,
+      .score-table th,
+      .question-list li {
+        border-color: #e2e8f0 !important;
+        background: #f8fafc !important;
+        color: #475569 !important;
+        page-break-inside: avoid;
+      }
+
+      .stat-number { color: #4f46e5 !important; }
+      .stat-label  { color: #64748b !important; }
+
+      .score-table td { color: #475569 !important; }
+
+      .project-num { color: #94a3b8 !important; }
+
+      .cta-section {
+        background: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+      }
+
+      .cta-section h2 { color: #1e293b !important; }
+      .cta-section p  { color: #475569 !important; }
+
+      .btn-primary, .btn-secondary { display: none !important; }
+
+      .toc-cta { display: none !important; }
+
+      .guide-footer {
+        background: #f8fafc !important;
+        border-top: 1px solid #e2e8f0 !important;
+      }
+
+      .guide-footer p { color: #94a3b8 !important; }
+
+      .pillar-num.blue   { background: #4f46e5 !important; }
+      .pillar-num.purple { background: #9333ea !important; }
+      .pillar-num.cyan   { background: #0891b2 !important; }
+      .pillar-num.amber  { background: #d97706 !important; }
+      .pillar-num.green  { background: #059669 !important; }
+
+      .icon-list li .li-icon      { background: #4f46e5 !important; }
+      .icon-list li .li-icon.purple { background: #9333ea !important; }
+      .icon-list li .li-icon.cyan   { background: #0891b2 !important; }
+      .icon-list li .li-icon.amber  { background: #d97706 !important; }
+
+      .icon-list li { color: #475569 !important; }
+      .icon-list li strong { color: #1e293b !important; }
+
+      .question-list li { color: #475569 !important; }
+      .q-num { color: #4f46e5 !important; }
+
+      .part-label { border-color: #cbd5e1 !important; background: #f1f5f9 !important; color: #475569 !important; }
+      .guide-badge { border-color: #cbd5e1 !important; background: #f1f5f9 !important; color: #4f46e5 !important; }
+
+      a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 11px;
+        color: #94a3b8;
+      }
+
+      .team-contact-email { color: #4f46e5 !important; }
+      .chip { border-color: #e2e8f0 !important; background: #f8fafc !important; color: #64748b !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ─── GUIDE NAV ───────────────────────────────────────────────────── -->
+  <nav class="guide-nav" role="banner">
+    <div class="guide-nav-inner">
+      <a href="/" class="nav-logo" aria-label="CNAX AI Home">
+        <div class="logo-mark">CX</div>
+        <div class="logo-text">CNAX <span>AI</span></div>
+      </a>
+      <div class="nav-right">
+        <a href="/" class="nav-back">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          Back to Site
+        </a>
+        <button class="btn-print" onclick="window.print()" aria-label="Print or save as PDF">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+  <header class="guide-hero">
+    <div class="guide-badge">Free Resource · CNAX AI</div>
+    <h1>The Small Business AI Readiness Guide:<br><span class="gradient-text">How to Know If You're Ready for AI (And What to Do First)</span></h1>
+    <p class="subtitle">A practical framework from the team at CNAX AI — built for business owners who want real results, not hype.</p>
+    <div class="guide-meta">
+      <span class="guide-meta-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
+        12 min read
+      </span>
+      <span class="guide-meta-dot"></span>
+      <span class="guide-meta-item">Published by CNAX AI</span>
+      <span class="guide-meta-dot"></span>
+      <span class="guide-meta-item">2026 Edition</span>
+      <span class="guide-meta-dot"></span>
+      <span class="guide-meta-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Free to share
+      </span>
+    </div>
+  </header>
+
+  <!-- ─── MAIN LAYOUT ───────────────────────────────────────────────────── -->
+  <div class="guide-layout">
+
+    <!-- ─── SIDEBAR TOC ─────────────────────────────────────────────────── -->
+    <aside class="guide-toc" aria-label="Table of contents">
+
+      <button class="toc-toggle" id="toc-toggle-btn" onclick="toggleToc()" aria-expanded="false" aria-controls="toc-collapsible">
+        <span>Table of Contents</span>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+
+      <div class="toc-collapsible" id="toc-collapsible">
+        <div class="toc-label">Contents</div>
+        <ul class="toc-list" role="list">
+          <li><a href="#intro">Introduction</a></li>
+          <li class="toc-part">Part 1</li>
+          <li><a href="#pillar-1">Data &amp; Information Flow</a></li>
+          <li><a href="#pillar-2">Repetitive Processes</a></li>
+          <li><a href="#pillar-3">Lead Management</a></li>
+          <li><a href="#pillar-4">Communication Gaps</a></li>
+          <li><a href="#pillar-5">Growth Bottlenecks</a></li>
+          <li class="toc-part">Part 2</li>
+          <li><a href="#scoring">Scoring Your Readiness</a></li>
+          <li class="toc-part">Part 3</li>
+          <li><a href="#project-1">AI Lead Follow-Up</a></li>
+          <li><a href="#project-2">Appointment Booking</a></li>
+          <li><a href="#project-3">Review Management</a></li>
+          <li class="toc-part">Part 4</li>
+          <li><a href="#mistakes">Common AI Mistakes</a></li>
+          <li class="toc-part">Part 5</li>
+          <li><a href="#next-steps">Your Next Steps</a></li>
+        </ul>
+
+        <div class="toc-cta">
+          <p>Ready to put this into practice? Book a free AI audit with the CNAX team.</p>
+          <a href="https://cnax.ai" target="_blank" rel="noopener">Book Free AI Audit &rarr;</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ─── CONTENT ──────────────────────────────────────────────────────── -->
+    <main class="guide-content" role="main">
+
+      <!-- INTRO -->
+      <section class="guide-section" id="intro">
+        <div class="part-label">Introduction</div>
+        <h2>The AI Opportunity Most Small Businesses Are Missing</h2>
+
+        <p>We are living through one of the most significant technology transitions in modern business history — and the gap between businesses that adopt AI and those that don't is widening at an accelerating pace. For the first time in decades, small businesses have access to the same category of intelligence tools that Fortune 500 companies have spent millions developing. The difference? You don't need a dedicated data science team or a seven-figure budget to use them. You need the right strategy.</p>
+
+        <p>The challenge is that most small business owners have heard a lot of noise about AI without receiving much signal. They've seen headlines about chatbots, seen ads for "AI tools," and maybe even tried a tool or two — only to find that the results didn't match the promise. That experience leaves a bad taste: the technology feels overhyped, or worse, like it's built for someone else's business. This guide exists to change that. Not by adding more hype, but by giving you a concrete, honest framework for evaluating where your business actually stands — and what to do next.</p>
+
+        <div class="callout blue">
+          <div class="callout-label">Key Insight</div>
+          <p>According to recent small business surveys, <strong>businesses using AI-powered follow-up and automation report 30–50% improvements in lead conversion rates</strong> within the first 90 days of implementation — not because of magic, but because speed and consistency compound over time.</p>
+        </div>
+
+        <p>Here's the uncomfortable truth: the competitive gap is opening right now. Your competitors in the same market — the HVAC company down the street, the med spa across town, the real estate agent competing for the same listings — they are either already using AI tools to respond faster, follow up more consistently, and scale without hiring, or they're about to. Every month a business waits is another month of leads that went cold, appointments that weren't booked, and reviews that weren't requested. AI doesn't give early adopters a permanent advantage, but it gives them a meaningful one — and that head start is hard to close.</p>
+
+        <p>Most businesses wait too long for one of three reasons: they think they're not big enough, they think it's too technical, or they're waiting for the "right time." None of these reasons are as valid as they feel. AI tools today are built for non-technical users, work for businesses of all sizes, and the right time is always a version of now — because the operational inefficiencies you're tolerating today are costing you money every week. This guide will help you stop waiting by showing you exactly what to look at, how to score it, and what to do first.</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-number gradient-text">78%</div>
+            <div class="stat-label">of leads that don't hear back within 5 minutes never convert</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number gradient-text">4.7×</div>
+            <div class="stat-label">higher conversion rate when leads are contacted within the first hour</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number gradient-text">40%</div>
+            <div class="stat-label">of small business owners say repetitive admin tasks consume over half their week</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PART 1 -->
+      <section class="guide-section" id="part1">
+        <div class="section-divider"></div>
+        <div class="part-label">Part 1</div>
+        <h2>The 5-Pillar AI Readiness Assessment</h2>
+
+        <p>Before implementing any AI tool, it's critical to understand which parts of your business are actually ready for it — and which aren't. Rushing into AI without this clarity is one of the most common (and expensive) mistakes small businesses make. The following five pillars cover the operational areas where AI delivers the highest ROI. Work through each one honestly. There are no wrong answers — only accurate ones.</p>
+
+        <!-- PILLAR 1 -->
+        <div class="pillar-card" id="pillar-1">
+          <div class="pillar-header">
+            <div class="pillar-num blue">01</div>
+            <div>
+              <div class="pillar-title">Data &amp; Information Flow</div>
+              <div class="pillar-subtitle">Do you have organized customer data you can actually act on?</div>
+            </div>
+          </div>
+          <p>AI is only as good as the data it has to work with. Before you can automate any customer interaction, you need to know where your customer and lead data lives, how organized it is, and how easily it can be accessed or integrated with other tools. Many small businesses have their data scattered across a CRM, a spreadsheet, a phone's contact list, and someone's email inbox. That fragmentation is the first thing AI needs to bridge — and until it's addressed, most automations will break or produce unreliable results.</p>
+          <p><strong>Ask yourself these questions honestly:</strong></p>
+          <ul class="question-list">
+            <li><span class="q-num">1</span>Do you have a single system (CRM, spreadsheet, or database) where all your customer and lead information lives?</li>
+            <li><span class="q-num">2</span>When a new lead comes in, do you consistently capture their name, contact info, source, and the service they're interested in?</li>
+            <li><span class="q-num">3</span>Can you pull a list of your top 50 customers right now without manually searching through emails or a phone?</li>
+            <li><span class="q-num">4</span>Do you know which marketing channels or referral sources generate your best customers?</li>
+          </ul>
+        </div>
+
+        <!-- PILLAR 2 -->
+        <div class="pillar-card" id="pillar-2">
+          <div class="pillar-header">
+            <div class="pillar-num purple">02</div>
+            <div>
+              <div class="pillar-title">Repetitive Processes</div>
+              <div class="pillar-subtitle">What tasks consume the most time that follow a consistent pattern?</div>
+            </div>
+          </div>
+          <p>Automation — AI-powered or otherwise — works best on tasks that are predictable, repeatable, and rule-based. If you or a team member does the same thing more than 10 times a week in roughly the same way, that task is a candidate for automation. The goal of this pillar is to identify your highest-volume repetitive tasks so you know where AI can buy back the most time. Time saved on repetitive work is time reinvested in higher-value activity, or in the kind of rest that prevents burnout.</p>
+          <ul class="question-list">
+            <li><span class="q-num">1</span>What administrative tasks do you or your team do every single week that feel like "going through the motions" (responding to FAQs, sending appointment reminders, requesting reviews, etc.)?</li>
+            <li><span class="q-num">2</span>Do you have any tasks that you've avoided doing consistently because they're tedious — even though you know they would help your business?</li>
+            <li><span class="q-num">3</span>If you could offload 3 specific tasks to a reliable system that ran 24/7, which would make the biggest difference to your business?</li>
+            <li><span class="q-num">4</span>Are there processes in your business that are done differently depending on who does them — suggesting a lack of standardization that automation could fix?</li>
+          </ul>
+        </div>
+
+        <!-- PILLAR 3 -->
+        <div class="pillar-card" id="pillar-3">
+          <div class="pillar-header">
+            <div class="pillar-num cyan">03</div>
+            <div>
+              <div class="pillar-title">Lead Management</div>
+              <div class="pillar-subtitle">How do leads come in, and how consistently do they get followed up?</div>
+            </div>
+          </div>
+          <p>Lead management is where most small businesses lose the most money without realizing it. The cost isn't just the marketing spend to generate the lead — it's the compounded revenue of every customer that lead could have become. Most businesses have a lead follow-up problem that masquerades as a lead generation problem. They feel like they need more leads when in reality, the leads they're already generating aren't being worked. AI lead follow-up is consistently one of the highest-ROI implementations for small businesses precisely because it works on the problem that already exists.</p>
+          <ul class="question-list">
+            <li><span class="q-num">1</span>How quickly does a new lead hear back from your business after submitting a form, sending a text, or calling and leaving a voicemail?</li>
+            <li><span class="q-num">2</span>Do you have a documented follow-up sequence (e.g., contact on Day 1, follow up on Day 3, final follow-up on Day 7), or does follow-up happen whenever someone remembers?</li>
+            <li><span class="q-num">3</span>What percentage of your leads from the last 90 days do you think were followed up with at least 3 times?</li>
+            <li><span class="q-num">4</span>Are leads from different channels (website forms, social media DMs, referrals, Google calls) treated consistently, or does the experience vary widely?</li>
+          </ul>
+          <div class="callout">
+            <div class="callout-label">Research Finding</div>
+            <p>The average small business follows up with a new lead just <strong>1.3 times</strong>. Research consistently shows that <strong>80% of sales require 5 or more follow-up contacts</strong>. This gap is almost entirely closeable with automation.</p>
+          </div>
+        </div>
+
+        <!-- PILLAR 4 -->
+        <div class="pillar-card" id="pillar-4">
+          <div class="pillar-header">
+            <div class="pillar-num amber">04</div>
+            <div>
+              <div class="pillar-title">Communication Gaps</div>
+              <div class="pillar-subtitle">Where do leads and customers fall through the cracks?</div>
+            </div>
+          </div>
+          <p>Communication gaps are the silent killers of small business growth. They're the unanswered texts that came in at 10pm on a Saturday. The follow-up email that was meant to go out but didn't because someone got busy. The review request that never got sent because the job wrapped up and the team moved on to the next one. These gaps are rarely the result of negligence — they're the result of limited time and bandwidth. AI plugs these gaps by enabling consistent, timely communication at scale without requiring human attention for every touchpoint.</p>
+          <ul class="question-list">
+            <li><span class="q-num">1</span>Do you receive leads or customer inquiries outside of business hours, and if so, how long do they typically wait before hearing back?</li>
+            <li><span class="q-num">2</span>After a job is completed or a service is delivered, do customers receive any follow-up communication, or does the relationship go quiet?</li>
+            <li><span class="q-num">3</span>Do you send appointment reminders proactively, or do no-shows happen because customers forgot?</li>
+            <li><span class="q-num">4</span>Is there a gap in your pipeline where you consistently lose track of where leads stand in the buying process?</li>
+          </ul>
+        </div>
+
+        <!-- PILLAR 5 -->
+        <div class="pillar-card" id="pillar-5">
+          <div class="pillar-header">
+            <div class="pillar-num green">05</div>
+            <div>
+              <div class="pillar-title">Growth Bottlenecks</div>
+              <div class="pillar-subtitle">What's limiting your capacity to grow without burning out?</div>
+            </div>
+          </div>
+          <p>Every small business hits a ceiling. It's the point where taking on more work means the owner works more hours — not where the system handles more volume. The most common growth bottlenecks are not lack of leads or lack of skill; they're time, attention, and operational capacity. AI doesn't replace your team or your expertise, but it does eliminate the bottlenecks that prevent you from using your time and expertise where it actually counts. Understanding your specific ceiling is the key to knowing which AI implementation will unlock the most growth.</p>
+          <ul class="question-list">
+            <li><span class="q-num">1</span>If your lead volume doubled tomorrow, would your current follow-up and onboarding process hold up, or would things start falling through the cracks?</li>
+            <li><span class="q-num">2</span>Are there revenue opportunities (reactivating past customers, asking for referrals, upselling existing clients) that you know exist but don't have time to pursue consistently?</li>
+            <li><span class="q-num">3</span>Is there a specific role or function in your business that you feel like you "need to hire for" — but the task could potentially be automated instead?</li>
+            <li><span class="q-num">4</span>What would you do with 10 additional hours per week if repetitive admin and communication tasks were handled automatically?</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PART 2 -->
+      <section class="guide-section" id="scoring">
+        <div class="section-divider"></div>
+        <div class="part-label">Part 2</div>
+        <h2>Scoring Your Readiness</h2>
+
+        <p>Now that you've worked through the five pillars, it's time to translate your honest self-assessment into a readiness score. This isn't about passing or failing — it's about knowing exactly where you stand so you can take the right first step. Use the scoring guide below for each of the five pillars, then add up your total.</p>
+
+        <h3><span class="h3-icon">📊</span>How to Score Each Pillar</h3>
+
+        <table class="score-table" role="table">
+          <thead>
+            <tr>
+              <th>Score</th>
+              <th>What It Means</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>This area is largely unaddressed. Data is scattered, processes are informal, or you haven't thought much about this yet.</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>You have some basic systems in place but they're inconsistent or incomplete. Things happen when you remember to do them.</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>You have a working system here, but it's manual and dependent on someone's attention. It breaks when things get busy.</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>You have a reasonably solid process. It works most of the time. There are clear opportunities to make it faster or more consistent.</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>This area is well-organized, consistent, and scalable. You could add 3× the volume without it breaking down.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3><span class="h3-icon">🎯</span>What Your Total Score Means</h3>
+
+        <table class="score-table" role="table">
+          <thead>
+            <tr>
+              <th>Total Score</th>
+              <th>Stage</th>
+              <th>What to Do Next</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="score-range getting-started">5 – 10</span></td>
+              <td><span class="score-badge getting-started">Getting Started</span></td>
+              <td>Focus on building the foundations first. Get your customer data organized, identify your top 2–3 repetitive processes, and establish a basic lead tracking system. AI will be far more effective once these fundamentals are in place. This stage typically takes 4–8 weeks with the right guidance.</td>
+            </tr>
+            <tr>
+              <td><span class="score-range ready">11 – 17</span></td>
+              <td><span class="score-badge ready">Ready to Automate</span></td>
+              <td>You have enough operational foundation to see real results from AI. Start with one high-impact project — AI lead follow-up is the most common first win at this stage. You'll learn quickly, see measurable ROI, and build confidence to layer in additional automations over the next 3–6 months.</td>
+            </tr>
+            <tr>
+              <td><span class="score-range scale">18 – 25</span></td>
+              <td><span class="score-badge scale">Scale With AI</span></td>
+              <td>You're operationally ready to deploy AI across multiple areas simultaneously. Focus on building an integrated automation stack: lead follow-up, appointment management, review generation, and customer reactivation working together as a system. The compounding effect at this stage is significant.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout purple">
+          <div class="callout-label">Important Note</div>
+          <p>Don't let a low score discourage you. The businesses that achieve the fastest results with AI are often those that started with a lower score — because building the right foundations from scratch means building them correctly, without legacy bad habits baked in. <strong>Every score has a clear path forward.</strong></p>
+        </div>
+      </section>
+
+      <!-- PART 3 -->
+      <section class="guide-section" id="part3">
+        <div class="section-divider"></div>
+        <div class="part-label">Part 3</div>
+        <h2>The 3 Best First AI Projects for Small Businesses</h2>
+
+        <p>With hundreds of AI tools on the market, the hardest question isn't "what AI tools exist?" — it's "which one do I do first?" The three projects below are selected based on three criteria: they are high-ROI (measurable impact within 60–90 days), they are achievable without enterprise-level infrastructure, and they compound over time (they get better the longer they run). In our experience working with small businesses, these three are the ones that pay for themselves fastest and build the most momentum.</p>
+
+        <!-- PROJECT 1 -->
+        <div class="project-card proj-1" id="project-1">
+          <div class="project-num">Project #1 · Highest Priority</div>
+          <h3 class="gradient-text">AI Lead Follow-Up: 24/7 Text + Email Response</h3>
+          <div class="project-meta">
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-cyan)"></span>ROI Potential: Very High</span>
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-green)"></span>Complexity: Low–Medium</span>
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-purple)"></span>Time to Launch: 1–2 Weeks</span>
+          </div>
+
+          <p><strong>What it is:</strong> An automated system that responds to every new lead — via text message and email — within seconds of them submitting a form, sending a message, or calling after hours. The AI sends a personalized, context-aware first message that acknowledges their inquiry, asks a qualifying question, and begins moving them toward a booked appointment or conversation — all without requiring any human intervention in the initial stages.</p>
+
+          <p><strong>Why it works:</strong> Speed is the single most important variable in lead conversion. A lead that submits a form on your website at 8:30pm on a Tuesday is not going to wait until you open at 9am Wednesday. They're going to look at the next business on Google. An AI that responds in 90 seconds instead of 12 hours doesn't just improve your conversion rate — it also improves how potential customers perceive your professionalism, even before they've spoken to anyone on your team.</p>
+
+          <ul class="icon-list">
+            <li>
+              <span class="li-icon">✓</span>
+              <span><strong>The ROI potential is straightforward:</strong> if you generate 30 leads per month and convert 20% (6 customers), and AI improves conversion to 30% (9 customers), the math on even a modest average transaction value adds up quickly. A single additional customer per month often covers the cost of the entire automation stack.</span>
+            </li>
+            <li>
+              <span class="li-icon cyan">✓</span>
+              <span><strong>The system also handles re-engagement</strong> of leads that went cold — automatically following up with a sequence of messages over 7–14 days before marking a lead as inactive. Most businesses have a pipeline full of cold leads that are one good follow-up message away from converting.</span>
+            </li>
+            <li>
+              <span class="li-icon purple">✓</span>
+              <span><strong>Implementation complexity is lower than most expect:</strong> modern platforms like Go High Level, HubSpot, or custom-built workflows using tools like Make and Twilio can be configured and deployed in 1–2 weeks by an experienced partner. The main investment is writing the message sequences and connecting your lead sources.</span>
+            </li>
+          </ul>
+
+          <div class="callout green">
+            <div class="callout-label">Real-World Impact</div>
+            <p>A home services client we worked with was generating 40 inbound leads per month and converting about 8 of them. After implementing AI lead follow-up with a 5-touch sequence over 7 days, their conversion rate climbed to 22 — nearly tripling revenue from the same ad spend. <strong>The difference was entirely in follow-up, not lead quality.</strong></p>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card proj-2" id="project-2">
+          <div class="project-num">Project #2 · High Priority</div>
+          <h3 style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Automated Appointment Booking &amp; Reminders</h3>
+          <div class="project-meta">
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-purple)"></span>ROI Potential: High</span>
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-green)"></span>Complexity: Low</span>
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-cyan)"></span>Time to Launch: 3–5 Days</span>
+          </div>
+
+          <p><strong>What it is:</strong> A fully automated booking system that allows leads and customers to schedule appointments directly from a text message, email, website, or social media profile — without phone tag. Paired with automated reminders (text, email, or both) sent at 48 hours, 24 hours, and 1 hour before the appointment, this system dramatically reduces no-shows while eliminating the administrative overhead of manual scheduling.</p>
+
+          <p><strong>Why it works:</strong> No-shows are one of the most painful and preventable costs in service-based businesses. The research is clear: automated appointment reminders reduce no-show rates by 30–50% on average. More importantly, the act of letting customers self-schedule increases show rates because the customer owns the appointment — they chose the time, confirmed it themselves, and received multiple reminders. They have no excuse not to show up.</p>
+
+          <ul class="icon-list">
+            <li>
+              <span class="li-icon purple">✓</span>
+              <span><strong>Integrated calendar management</strong> means the system knows your real-time availability and only offers slots you've designated as bookable — preventing double-booking and allowing buffer time between appointments.</span>
+            </li>
+            <li>
+              <span class="li-icon">✓</span>
+              <span><strong>Automated intake forms</strong> can be included in the booking flow, so by the time a customer walks in or gets on a call, you already have their relevant background information, reducing the time spent on intake during the appointment itself.</span>
+            </li>
+            <li>
+              <span class="li-icon cyan">✓</span>
+              <span><strong>Rescheduling requests are handled automatically:</strong> when a customer needs to change their appointment, they click a link and choose a new time — the calendar updates in real-time without anyone on your team needing to get involved.</span>
+            </li>
+            <li>
+              <span class="li-icon amber">✓</span>
+              <span><strong>The ROI calculation is simple:</strong> take your average no-show rate (often 15–25% for service businesses), multiply by your average appointment value, and calculate what a 40% reduction in no-shows would mean per month. Most businesses find this automation pays for itself in the first 2–4 weeks.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card proj-3" id="project-3">
+          <div class="project-num">Project #3 · High Priority</div>
+          <h3 style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI-Powered Review &amp; Reputation Management</h3>
+          <div class="project-meta">
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-cyan)"></span>ROI Potential: High (Long-Term)</span>
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-green)"></span>Complexity: Very Low</span>
+            <span class="project-meta-item"><span class="dot" style="background:var(--accent-blue)"></span>Time to Launch: 1–3 Days</span>
+          </div>
+
+          <p><strong>What it is:</strong> An automated system that sends a review request — via text message — to every customer immediately after a job is completed or a service is delivered. The message includes a direct link to your Google Business Profile (or other platform) and is timed to arrive when the customer's satisfaction is highest. For businesses with an existing review base, AI can also help craft professional, personalized responses to every new review — both positive and negative — in a fraction of the time it takes to do manually.</p>
+
+          <p><strong>Why it works:</strong> Online reviews are the single most powerful form of social proof for local businesses. When someone searches for your service in your area, your star rating and review count are visible before they've ever clicked on your business. Studies consistently show that consumers trust online reviews as much as personal recommendations, and that businesses with 50+ reviews generate significantly more clicks and conversions than those with fewer. Most businesses with great service simply don't have great reviews — because they never asked.</p>
+
+          <ul class="icon-list">
+            <li>
+              <span class="li-icon cyan">✓</span>
+              <span><strong>Timing is everything with review requests.</strong> A text sent within 2 hours of job completion achieves dramatically higher response rates than one sent the next day. Automation makes it possible to always hit that window, even when your team is on to the next job and no one remembers to follow up.</span>
+            </li>
+            <li>
+              <span class="li-icon">✓</span>
+              <span><strong>The compounding effect over 12 months</strong> is significant: if automation generates even 8–10 new reviews per month, that's 96–120 reviews per year. In most local markets, that volume of positive reviews effectively locks competitors out of the top search positions.</span>
+            </li>
+            <li>
+              <span class="li-icon purple">✓</span>
+              <span><strong>AI-generated review responses</strong> save significant time while maintaining a personal, professional tone for every response. Responding to all reviews (not just negative ones) signals to both Google's algorithm and prospective customers that you're an engaged, attentive business owner.</span>
+            </li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-label">SEO Benefit</div>
+            <p>Google's local ranking algorithm weighs <strong>review recency, volume, and response rate</strong> as signals of business credibility and activity. Businesses with consistent, recent reviews and active owner responses tend to rank higher in the Local Pack — the three-business map result that captures the majority of clicks for service-based searches.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PART 4 -->
+      <section class="guide-section" id="mistakes">
+        <div class="section-divider"></div>
+        <div class="part-label">Part 4</div>
+        <h2>Common AI Mistakes to Avoid</h2>
+
+        <p>For every business that experiences a fast, high-ROI AI implementation, there are others that spend money, lose time, and walk away more skeptical of AI than when they started. The difference almost never comes down to the tools — it comes down to how the implementation was approached. These are the five mistakes we see most consistently, and how to avoid them.</p>
+
+        <div class="mistake-card">
+          <div class="mistake-icon">🛒</div>
+          <div>
+            <h4>Buying Tools Before Defining the Problem</h4>
+            <p>The AI tools landscape is crowded with impressive demos and convincing sales pitches. It's easy to buy three tools in a month and then realize you're not sure what problem any of them is solving for your specific business. Before you spend a dollar on AI software, write down the specific outcome you want — not the feature, the outcome. "I want every new lead to receive a response within 5 minutes" is a problem. "I want an AI chatbot" is a feature. Start with the problem, and the right tool becomes much easier to identify.</p>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-icon">⚙️</div>
+          <div>
+            <h4>Automating Broken Processes</h4>
+            <p>Automation makes everything faster — including bad processes. If your lead follow-up is ineffective today, automating it will just make your ineffective follow-up happen faster and at higher volume. Before you automate any process, take 30 minutes to walk through it manually and ask: is this process actually working? If a human did this perfectly every time, would it produce the result we want? If the answer is no, fix the process first, then automate it. A polished automated workflow built on a solid process is one of the most powerful assets a small business can have.</p>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-icon">🗃️</div>
+          <div>
+            <h4>Ignoring Data Quality</h4>
+            <p>Bad data is the hidden cost of most failed AI implementations. If your CRM has duplicate contacts, missing phone numbers, incorrect email addresses, or leads that were never properly tagged by source, any AI built on top of that data will produce unreliable, embarrassing, or simply ineffective results. Data quality isn't glamorous — but auditing and cleaning your customer and lead data before an AI implementation is one of the highest-leverage activities you can do. Even a simple spreadsheet with clean, complete, consistently formatted data will outperform a sophisticated CRM with messy data every time.</p>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-icon">🔧</div>
+          <div>
+            <h4>Expecting Zero Maintenance</h4>
+            <p>AI tools are not set-and-forget solutions (with a few narrow exceptions). Automations need to be reviewed periodically — message sequences may need to be updated as your offers or pricing change, lead sources may shift, and occasionally a workflow will break silently and need to be debugged. Budget for roughly 1–2 hours per month per automation to review performance metrics, spot-check outputs, and make updates. The businesses that get the most long-term value from AI are the ones that treat their automation stack the same way they'd treat a team member: with regular check-ins, honest evaluation, and ongoing refinement.</p>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-icon">👥</div>
+          <div>
+            <h4>Skipping Employee Buy-In</h4>
+            <p>For businesses with teams, one of the most common reasons AI implementations fail quietly is that the people who need to work alongside them don't understand what they do, don't trust them, or feel threatened by them. Before rolling out automation to your team, take the time to explain what each tool does, what it doesn't do, and how it makes their job easier — not how it replaces them. Employees who understand an automation system will catch errors faster, flag when something isn't working, and actively improve the system over time. Employees who feel blindsided will find workarounds and undermine the very consistency automation is designed to create.</p>
+          </div>
+        </div>
+
+        <div class="callout amber">
+          <div class="callout-label">The Bottom Line on Mistakes</div>
+          <p>Every one of these mistakes is completely avoidable with the right framework going in. The businesses that move fast on AI and achieve strong results are not necessarily smarter or more technically sophisticated — they're more disciplined about <strong>defining outcomes before selecting tools, and building foundations before adding complexity.</strong></p>
+        </div>
+      </section>
+
+      <!-- PART 5 -->
+      <section class="guide-section" id="next-steps">
+        <div class="section-divider"></div>
+        <div class="part-label">Part 5</div>
+        <h2>Your Next Steps</h2>
+
+        <p>You now have a framework for assessing your readiness, a clear picture of where to start, and a map of the mistakes to avoid. The question is: what do you do with it? Here's our honest recommendation: don't try to implement everything yourself from scratch unless you have the time, technical aptitude, and genuine desire to do so. The real cost of a DIY AI implementation isn't the tool subscriptions — it's the time spent on learning curves, debugging integrations, and rebuilding workflows that didn't work the first time. For most small business owners, the highest-leverage use of your time is running your business, not becoming an automation developer.</p>
+
+        <p>That's the problem CNAX AI was built to solve. We work with small businesses to design, build, and maintain AI-powered systems that actually fit how your business operates — not generic templates that need a month of customization to become useful. Our process starts with an honest assessment of where you are (exactly what you just did in this guide), and ends with a live, working automation system that you can monitor, trust, and build on.</p>
+
+        <h3><span class="h3-icon">🚀</span>What CNAX AI Does</h3>
+
+        <div class="services-chips">
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-blue)"></span>AI Business Integration</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-cyan)"></span>AI Lead Follow-Up Systems</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-purple)"></span>Sales Funnel Automation</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-green)"></span>Appointment Booking Automation</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-amber)"></span>Review &amp; Reputation Systems</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-blue)"></span>CRM Setup &amp; Optimization</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-cyan)"></span>AI Content &amp; Copy</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-purple)"></span>Workflow Automation</span>
+          <span class="chip"><span class="chip-dot" style="background:var(--accent-green)"></span>Analytics &amp; Reporting</span>
+        </div>
+
+        <p>We don't sell you a SaaS subscription and leave you to figure it out. Every CNAX AI engagement starts with a free AI Audit — a 45-minute conversation where we look at your current operations, score your readiness together, and identify the 1–3 implementations that will generate the most measurable ROI for your specific business. No pitch deck. No obligation. Just an honest assessment and a clear recommendation.</p>
+
+        <ul class="icon-list">
+          <li>
+            <span class="li-icon">✓</span>
+            <span><strong>We build the system for you.</strong> Our team designs, configures, integrates, and tests every automation before it goes live — so you're not debugging someone else's half-finished workflow at midnight.</span>
+          </li>
+          <li>
+            <span class="li-icon cyan">✓</span>
+            <span><strong>We train your team on it.</strong> Every implementation includes onboarding so you and your team understand how the system works, what to watch for, and how to make updates without needing to call us every time.</span>
+          </li>
+          <li>
+            <span class="li-icon purple">✓</span>
+            <span><strong>We stay involved.</strong> AI systems need ongoing refinement to stay effective. We offer monthly review and optimization engagements for clients who want a long-term partner, not just a one-time build.</span>
+          </li>
+          <li>
+            <span class="li-icon amber">✓</span>
+            <span><strong>We measure results.</strong> Every engagement includes clear KPIs — response time, lead conversion rate, no-show reduction, review velocity — so you can see exactly what the investment is producing.</span>
+          </li>
+        </ul>
+
+        <div class="cta-section">
+          <h2>Ready to See What AI Can Do for <span class="gradient-text">Your Business?</span></h2>
+          <p>Book a free AI audit with the CNAX team. We'll review your current operations, identify your biggest opportunities, and give you a clear, specific recommendation — no generic advice, no obligation.</p>
+          <div class="cta-buttons">
+            <a href="https://cnax.ai" class="btn-primary" target="_blank" rel="noopener">
+              Book Free AI Audit &rarr;
+            </a>
+            <a href="mailto:collin@cnax.ai" class="btn-secondary">
+              Email the Team
+            </a>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 48px;"><span class="h3-icon">✉️</span>Talk to the Team Directly</h3>
+        <p>We're a small, focused team — which means when you reach out, you talk to the people who will actually be working on your project. Here's how to get in touch:</p>
+
+        <div class="team-contacts">
+          <div class="team-contact">
+            <div class="team-contact-name">Collin Kendra</div>
+            <div class="team-contact-role">Co-Founder &amp; AI Strategy</div>
+            <a href="mailto:collin@cnax.ai" class="team-contact-email">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              collin@cnax.ai
+            </a>
+          </div>
+          <div class="team-contact">
+            <div class="team-contact-name">Nate Bott</div>
+            <div class="team-contact-role">Co-Founder &amp; Automation Systems</div>
+            <a href="mailto:nate@cnax.ai" class="team-contact-email">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              nate@cnax.ai
+            </a>
+          </div>
+          <div class="team-contact">
+            <div class="team-contact-name">Alex Butera</div>
+            <div class="team-contact-role">Co-Founder &amp; Growth Systems</div>
+            <a href="mailto:alex@cnax.ai" class="team-contact-email">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              alex@cnax.ai
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
+  <footer class="guide-footer" role="contentinfo">
+    <p>© 2026 CNAX AI &nbsp;·&nbsp; <a href="https://cnax.ai" target="_blank" rel="noopener">cnax.ai</a> &nbsp;·&nbsp; This guide is for informational purposes only. Results may vary based on business type, market, and implementation quality.</p>
+  </footer>
+
+</div><!-- end page-wrap -->
+
+<!-- ─── COOKIE CONSENT ──────────────────────────────────────────────── -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:20px 24px;background:rgba(13,13,31,0.97);border-top:1px solid rgba(99,102,241,0.25);backdrop-filter:blur(12px);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <p style="font-size:14px;color:#94a3b8;margin:0;flex:1;min-width:260px;">We use cookies to analyze site traffic and improve your experience. <a href="/" style="color:#6366f1;">Learn more</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="cookie-decline" style="padding:9px 18px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:none;color:#94a3b8;font-size:13px;cursor:pointer;font-family:inherit;">Essential Only</button>
+      <button id="cookie-accept" style="padding:9px 18px;border-radius:8px;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    var consent = localStorage.getItem('cx-cookie-consent');
+    if (!consent) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+      localStorage.setItem('cx-cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+      loadAnalytics();
+    });
+    document.getElementById('cookie-decline').addEventListener('click', function() {
+      localStorage.setItem('cx-cookie-consent', 'declined');
+      document.getElementById('cookie-banner').style.display = 'none';
+    });
+    if (consent === 'accepted') loadAnalytics();
+    function loadAnalytics() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-E9EK57TFJ9';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E9EK57TFJ9');
+    }
+  })();
+</script>
+
+<!-- GA4 loaded conditionally via cookie consent above -->
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69ab62a4f667fc1c3721ef80/1jj2nikmu';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<script>
+  /* ─── TOC MOBILE TOGGLE ──────────────────────────────────────────── */
+  function toggleToc() {
+    var btn = document.getElementById('toc-toggle-btn');
+    var col = document.getElementById('toc-collapsible');
+    var isOpen = col.classList.contains('open');
+    col.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  }
+
+  /* ─── ACTIVE TOC LINK ────────────────────────────────────────────── */
+  (function() {
+    var sections = document.querySelectorAll('.guide-section, .pillar-card, .project-card');
+    var tocLinks = document.querySelectorAll('.toc-list a');
+
+    function getTargetIds() {
+      return Array.from(tocLinks).map(function(a) {
+        return a.getAttribute('href').replace('#', '');
+      });
+    }
+
+    var targetIds = getTargetIds();
+
+    function onScroll() {
+      var scrollY = window.scrollY + 100;
+      var current = '';
+
+      targetIds.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) {
+          current = id;
+        }
+      });
+
+      tocLinks.forEach(function(a) {
+        var id = a.getAttribute('href').replace('#', '');
+        a.classList.toggle('active', id === current);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
