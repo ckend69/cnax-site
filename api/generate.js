@@ -8,6 +8,7 @@ const FILE_PATH  = 'posts.json';
 const AUTHORS = ['Collin Kendra', 'Nathan Bott', 'Alex Butera'];
 
 const TOPICS = [
+  // ── General AI & Automation ──────────────────────────────────────────────
   { title: "How AI Integration Can Triple Revenue for Small Businesses", category: "AI Integration" },
   { title: "Building an AI-Powered Sales Funnel That Converts 24/7", category: "Sales Funnels" },
   { title: "5 Ways AI Chatbots Are Replacing Traditional Customer Service", category: "AI Integration" },
@@ -28,6 +29,85 @@ const TOPICS = [
   { title: "The Small Business Guide to AI-Powered Social Media Marketing", category: "Marketing" },
   { title: "How AI Analytics Reveals Hidden Revenue in Your Business", category: "Analytics" },
   { title: "Automating Your Follow-Up Sequence with AI: A Step-by-Step Guide", category: "Sales Funnels" },
+  { title: "Is Your Small Business AI-Ready? 5 Signs It's Time to Automate", category: "AI Integration" },
+  { title: "The True Cost of Not Using AI: What Manual Processes Are Costing You", category: "AI Integration" },
+  { title: "AI vs. Hiring: When Automation Beats Adding Headcount", category: "Automation" },
+  { title: "How to Choose the Right AI Tools for Your Small Business in 2025", category: "AI Integration" },
+  { title: "What Is AI Integration and Why Does Your Business Need It Now", category: "AI Integration" },
+  { title: "The 5 Most Common AI Mistakes Small Businesses Make (And How to Avoid Them)", category: "AI Integration" },
+  { title: "How AI Appointment Scheduling Eliminates No-Shows and Fills Your Calendar", category: "Automation" },
+  { title: "AI-Powered Reviews Management: Turn Customer Feedback Into New Leads", category: "Marketing" },
+  { title: "How to Build a 24/7 Lead Generation Machine with AI", category: "Sales Funnels" },
+  { title: "Text Message Automation: Why AI SMS Follow-Up Wins More Business", category: "Marketing" },
+
+  // ── Home Services ────────────────────────────────────────────────────────
+  { title: "AI for Home Service Companies: How to Book More Jobs Without More Staff", category: "Home Services" },
+  { title: "How Plumbing Companies Use AI to Capture After-Hours Emergency Leads", category: "Home Services" },
+  { title: "AI Chatbots for Home Services: The Secret to Winning Same-Day Bookings", category: "Home Services" },
+  { title: "Landscaping Business Automation: How AI Books More Jobs Year-Round", category: "Home Services" },
+  { title: "How AI Helps Home Service Businesses Dominate Local Google Rankings", category: "Home Services" },
+
+  // ── HVAC ─────────────────────────────────────────────────────────────────
+  { title: "AI for HVAC Companies: How to Fill Your Schedule in Slow Season", category: "HVAC" },
+  { title: "How HVAC Contractors Use AI to Win More Maintenance Agreement Signups", category: "HVAC" },
+  { title: "HVAC Lead Follow-Up Automation: Stop Losing Estimates to the Competition", category: "HVAC" },
+  { title: "The HVAC Owner's Guide to AI: Dispatch, Scheduling, and Follow-Up on Autopilot", category: "HVAC" },
+
+  // ── Dental ───────────────────────────────────────────────────────────────
+  { title: "AI for Dental Offices: How to Reduce No-Shows and Fill Your Appointment Book", category: "Dental" },
+  { title: "How Dental Practices Use AI Chatbots to Convert Website Visitors into New Patients", category: "Dental" },
+  { title: "Dental Patient Reactivation: How AI Brings Back Patients Who Ghosted You", category: "Dental" },
+  { title: "Why AI Recall Systems Outperform Traditional Dental Reminder Calls", category: "Dental" },
+
+  // ── Med Spa ──────────────────────────────────────────────────────────────
+  { title: "AI for Med Spas: How to Automate Consultations and Fill Treatment Slots", category: "Med Spa" },
+  { title: "How Med Spas Use AI to Upsell Memberships and Repeat Bookings", category: "Med Spa" },
+  { title: "The Med Spa Owner's Guide to AI-Powered Client Retention", category: "Med Spa" },
+  { title: "AI Review Generation for Med Spas: Building a 5-Star Reputation on Autopilot", category: "Med Spa" },
+
+  // ── Gyms & Fitness ───────────────────────────────────────────────────────
+  { title: "AI for Gyms and Fitness Studios: How to Convert More Trial Members into Long-Term Members", category: "Gyms" },
+  { title: "How Fitness Studios Use AI to Reduce Membership Churn by 40%", category: "Gyms" },
+  { title: "AI Lead Nurture for Gyms: Turning Inquiries into Paid Memberships Automatically", category: "Gyms" },
+  { title: "The Gym Owner's Guide to AI: Front Desk Automation That Actually Works", category: "Gyms" },
+
+  // ── Restaurants ──────────────────────────────────────────────────────────
+  { title: "AI for Restaurants: How to Bring Back Customers Who Haven't Visited in 60 Days", category: "Restaurants" },
+  { title: "How Restaurants Use AI Text Marketing to Fill Slow Tuesday Nights", category: "Restaurants" },
+  { title: "AI Reputation Management for Restaurants: Responding to Every Review in Minutes", category: "Restaurants" },
+  { title: "How Local Restaurants Use AI to Compete With Chain Marketing Budgets", category: "Restaurants" },
+
+  // ── Real Estate ──────────────────────────────────────────────────────────
+  { title: "AI for Real Estate Agents: How to Instantly Respond to Every Lead 24/7", category: "Real Estate" },
+  { title: "How Real Estate Teams Use AI to Qualify Buyer and Seller Leads Automatically", category: "Real Estate" },
+  { title: "AI Follow-Up for Real Estate: Why the Agent Who Responds First Wins the Deal", category: "Real Estate" },
+  { title: "Real Estate CRM Automation: How AI Keeps Your Pipeline Full Without Manual Work", category: "Real Estate" },
+
+  // ── Financial Services ───────────────────────────────────────────────────
+  { title: "AI for Financial Advisors: How to Automate Client Onboarding and Nurture", category: "Financial Services" },
+  { title: "How Financial Services Firms Use AI to Generate and Qualify More Referrals", category: "Financial Services" },
+  { title: "AI Compliance-Friendly Marketing Automation for Financial Advisors", category: "Financial Services" },
+
+  // ── Law Firms ────────────────────────────────────────────────────────────
+  { title: "AI for Law Firms: How to Turn Website Visitors Into Consultation Bookings", category: "Law Firms" },
+  { title: "How Personal Injury Law Firms Use AI to Qualify More Cases Automatically", category: "Law Firms" },
+  { title: "Law Firm Intake Automation: How AI Replaces After-Hours Answering Services", category: "Law Firms" },
+
+  // ── E-Commerce ───────────────────────────────────────────────────────────
+  { title: "AI for E-Commerce: How to Recover Abandoned Carts with Automated Sequences", category: "E-Commerce" },
+  { title: "How Online Stores Use AI to Increase Average Order Value by 30%", category: "E-Commerce" },
+  { title: "AI Customer Service for E-Commerce: Resolving 70% of Support Tickets Automatically", category: "E-Commerce" },
+  { title: "Post-Purchase AI Automation: How E-Commerce Brands Turn Buyers Into Repeat Customers", category: "E-Commerce" },
+
+  // ── Auto Repair ──────────────────────────────────────────────────────────
+  { title: "AI for Auto Repair Shops: How to Book More Service Appointments on Autopilot", category: "Auto Repair" },
+  { title: "How Auto Repair Shops Use AI to Follow Up on Declined Services and Win Them Back", category: "Auto Repair" },
+  { title: "AI Review Generation for Auto Shops: Getting More 5-Star Google Reviews Automatically", category: "Auto Repair" },
+
+  // ── Childcare ────────────────────────────────────────────────────────────
+  { title: "AI for Childcare Centers: How to Fill Open Spots and Reduce Your Waitlist Frustration", category: "Childcare" },
+  { title: "How Daycare Centers Use AI to Automate Parent Communication and Enrollment Follow-Up", category: "Childcare" },
+  { title: "AI Reputation Management for Childcare Providers: Building Trust With New Families Online", category: "Childcare" },
 ];
 
 function slugify(text) {

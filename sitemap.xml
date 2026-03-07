@@ -97,4 +97,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <!-- Resources Hub -->
+  <url>
+    <loc>https://cnax.ai/resources.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
