@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+  s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1984448008284980');
+  fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1984448008284980&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI ROI Calculator for Small Businesses | CNAX AI</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="Free AI ROI calculator for small businesses. See exactly how much manual work and slow lead follow-up is costing you every month — then find out what AI can recover." />
+  <meta property="og:title" content="AI ROI Calculator for Small Businesses | CNAX AI" />
+  <meta property="og:description" content="Drag the sliders to calculate your monthly cost of not using AI. Free tool from CNAX AI." />
+  <meta property="og:image" content="https://cnax.ai/api/og-image" />
+  <meta property="og:url" content="https://cnax.ai/roi-calculator.html" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AI ROI Calculator for Small Businesses","url":"https://cnax.ai/roi-calculator.html","description":"Calculate how much manual work and slow lead follow-up costs your small business monthly, and how much AI automation could recover.","applicationCategory":"BusinessApplication","provider":{"@type":"Organization","name":"CNAX AI","url":"https://cnax.ai"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg-primary:#03030a;--bg-secondary:#07071a;--bg-card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--text-primary:#f1f5f9;--text-secondary:#94a3b8;--text-muted:#475569;--accent-blue:#6366f1;--accent-purple:#8b5cf6;--accent-cyan:#06b6d4;--accent-green:#34d399;--radius-xl:20px}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg-primary);color:var(--text-primary);font-family:'Inter',sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:100;background:rgba(3,3,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:white}
+    .logo-text{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--text-primary)}
+    .logo-text span{background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .btn-cta{background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:white;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600}
+    .gradient-text{background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero{padding:80px 0 60px;text-align:center}
+    .hero-label{display:inline-block;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:var(--accent-blue);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:20px}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.15;margin-bottom:16px;letter-spacing:-1.5px}
+    .hero p{font-size:18px;color:var(--text-secondary);max-width:600px;margin:0 auto}
+    /* CALCULATOR */
+    .calc-section{padding:60px 0 100px}
+    .roi-wrap{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start;margin-top:16px}
+    .roi-sliders{display:flex;flex-direction:column;gap:32px}
+    .roi-slider-group{}
+    .roi-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:14px;color:var(--text-secondary)}
+    .roi-slider-label strong{color:var(--accent-cyan);font-size:16px;font-family:'Space Grotesk',sans-serif}
+    .roi-range{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--border);outline:none;cursor:pointer}
+    .roi-range::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));cursor:pointer;box-shadow:0 0 0 4px rgba(99,102,241,0.2)}
+    .roi-output{background:var(--bg-card);border:1px solid rgba(99,102,241,0.25);border-radius:var(--radius-xl);padding:40px;position:sticky;top:90px}
+    .roi-output-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-bottom:12px}
+    .roi-total{font-family:'Space Grotesk',sans-serif;font-size:54px;font-weight:700;background:linear-gradient(135deg,#f87171,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px}
+    .roi-total-label{font-size:13px;color:var(--text-muted);margin-bottom:28px}
+    .roi-breakdown{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .roi-line{display:flex;justify-content:space-between;font-size:14px;color:var(--text-secondary)}
+    .roi-line-total{font-weight:600;color:var(--text-primary);padding-top:12px;border-top:1px solid var(--border)}
+    .roi-recovery{background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-radius:12px;padding:16px;margin-bottom:20px;font-size:13px;color:var(--text-secondary);line-height:1.6}
+    .roi-recovery strong{color:var(--accent-green)}
+    .roi-cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:white;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;width:100%;border:none;cursor:pointer}
+    /* CONTEXT SECTION */
+    .context-section{padding:80px 0;background:var(--bg-secondary);border-top:1px solid var(--border)}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+    .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:28px;text-align:center}
+    .stat-num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .stat-label{font-size:13px;color:var(--text-muted);margin-top:6px;line-height:1.5}
+    /* GUIDE CTA */
+    .guide-cta{background:linear-gradient(135deg,rgba(99,102,241,0.08),rgba(139,92,246,0.08));border:1px solid rgba(99,102,241,0.2);border-radius:20px;padding:48px;display:flex;align-items:center;gap:40px;flex-wrap:wrap;margin-top:60px}
+    .guide-cta-text{flex:1;min-width:280px}
+    .guide-cta-text h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:8px}
+    .guide-cta-text p{font-size:15px;color:var(--text-secondary)}
+    .guide-cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:white;padding:13px 24px;border-radius:12px;font-size:14px;font-weight:600;flex-shrink:0}
+    /* FAQ */
+    .faq-section{padding:80px 0}
+    .section-label{display:inline-block;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);color:var(--accent-blue);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px}
+    .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:700;margin-bottom:16px}
+    .section-title span{background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .faq-list{max-width:760px;margin:40px auto 0;display:flex;flex-direction:column;gap:12px}
+    .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .faq-item.open{border-color:rgba(99,102,241,0.35)}
+    .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;background:none;border:none;color:var(--text-primary);font-size:15px;font-weight:600;text-align:left;cursor:pointer}
+    .faq-icon{flex-shrink:0;transition:transform 0.3s}
+    .faq-item.open .faq-icon{transform:rotate(180deg)}
+    .faq-a{display:none;padding:0 22px 18px}
+    .faq-item.open .faq-a{display:block}
+    .faq-a p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+    /* FOOTER */
+    .page-footer{border-top:1px solid var(--border);padding:32px 0;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text-muted);flex-wrap:wrap;gap:16px}
+    @media(max-width:900px){.roi-wrap{grid-template-columns:1fr}.roi-output{position:static}}
+    @media(max-width:768px){.stat-grid{grid-template-columns:repeat(2,1fr)}.guide-cta{flex-direction:column}}
+    @media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="logo-mark">CX</div><span class="logo-text">CNAX<span> AI</span></span></a>
+    <a href="index.html#contact" class="btn-cta">Get Free Audit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Free Calculator Tool</div>
+    <h1>How Much Is <span class="gradient-text">Manual Work Costing You?</span></h1>
+    <p>Drag the sliders below to see exactly what slow lead follow-up and repetitive manual tasks cost your business every month — and what AI automation could put back.</p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section">
+  <div class="container">
+    <div class="roi-wrap">
+      <!-- Sliders -->
+      <div class="roi-sliders">
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:36px;display:flex;flex-direction:column;gap:32px;">
+          <div>
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px;">Your Business Numbers</h2>
+            <p style="font-size:14px;color:var(--text-secondary);">Adjust each slider to match your situation. Numbers update in real time.</p>
+          </div>
+          <div class="roi-slider-group">
+            <div class="roi-slider-label">
+              <span>Employees doing repetitive tasks</span>
+              <strong id="val-employees">3</strong>
+            </div>
+            <input type="range" class="roi-range" id="sl-employees" min="1" max="20" value="3" />
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px"><span>1</span><span>20</span></div>
+          </div>
+          <div class="roi-slider-group">
+            <div class="roi-slider-label">
+              <span>Hours per employee per week on those tasks</span>
+              <strong id="val-hours">10</strong>
+            </div>
+            <input type="range" class="roi-range" id="sl-hours" min="1" max="40" value="10" />
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px"><span>1h</span><span>40h</span></div>
+          </div>
+          <div class="roi-slider-group">
+            <div class="roi-slider-label">
+              <span>Average employee hourly cost (salary + overhead)</span>
+              <strong id="val-rate">$35</strong>
+            </div>
+            <input type="range" class="roi-range" id="sl-rate" min="15" max="150" value="35" step="5" />
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px"><span>$15</span><span>$150</span></div>
+          </div>
+          <div class="roi-slider-group">
+            <div class="roi-slider-label">
+              <span>Leads lost per month due to slow follow-up</span>
+              <strong id="val-leads">15</strong>
+            </div>
+            <input type="range" class="roi-range" id="sl-leads" min="0" max="200" value="15" />
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px"><span>0</span><span>200</span></div>
+          </div>
+          <div class="roi-slider-group">
+            <div class="roi-slider-label">
+              <span>Average deal / client value</span>
+              <strong id="val-deal">$2,500</strong>
+            </div>
+            <input type="range" class="roi-range" id="sl-deal" min="100" max="50000" value="2500" step="100" />
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px"><span>$100</span><span>$50K</span></div>
+          </div>
+        </div>
+
+        <!-- How it's calculated -->
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--text-primary);">How This Is Calculated</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent-cyan);font-weight:700;flex-shrink:0">Labor cost:</span> Employees × Hours × 4.33 weeks × Hourly rate</li>
+            <li style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent-cyan);font-weight:700;flex-shrink:0">Lost revenue:</span> Lost leads × Deal value × 15% (industry avg close rate on recovered leads)</li>
+            <li style="font-size:13px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent-cyan);font-weight:700;flex-shrink:0">Recovery:</span> CNAX AI clients typically recover 60–80% of this total within 90 days</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Output -->
+      <div class="roi-output">
+        <div class="roi-output-title">Monthly Cost of Not Using AI</div>
+        <div class="roi-total" id="roi-total">$0</div>
+        <div class="roi-total-label">per month left on the table</div>
+        <div class="roi-breakdown">
+          <div class="roi-line">
+            <span>Wasted labor cost</span>
+            <strong id="roi-labor">$0</strong>
+          </div>
+          <div class="roi-line">
+            <span>Lost revenue (missed leads)</span>
+            <strong id="roi-revenue">$0</strong>
+          </div>
+          <div class="roi-line roi-line-total">
+            <span>Total monthly loss</span>
+            <strong id="roi-total2">$0</strong>
+          </div>
+        </div>
+        <div class="roi-recovery">
+          CNAX AI clients typically recover <strong>60–80%</strong> of this — within the first 90 days. That's <strong id="roi-recovered">$0</strong>/month put back in your business.
+        </div>
+        <a href="index.html#contact" class="roi-cta-btn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Get My Free AI Audit
+        </a>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:12px;text-align:center">Free · No obligation · 30-minute call</p>
+      </div>
+    </div>
+
+    <!-- Guide CTA -->
+    <div class="guide-cta">
+      <div class="guide-cta-text">
+        <h3>Want to Know Where to Start?</h3>
+        <p>Download the free AI Readiness Guide — a practical framework for figuring out your first AI projects and how to prioritize them.</p>
+      </div>
+      <a href="ai-readiness-guide.html" class="guide-cta-btn">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Get the Free Guide
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT: WHY THIS MATTERS -->
+<section class="context-section">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto">
+      <div class="section-label">The Real Numbers</div>
+      <h2 class="section-title">The Hidden Cost of <span>Doing Nothing</span></h2>
+      <p style="font-size:16px;color:var(--text-secondary);">Most small business owners underestimate how much time and revenue they lose to manual processes — until they see the numbers laid out in front of them.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">47h</div>
+        <div class="stat-label">Average time a small business takes to respond to a new lead — by then, most have moved on</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">78%</div>
+        <div class="stat-label">Of customers buy from the first vendor to respond. Speed wins deals — not price</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">23h</div>
+        <div class="stat-label">Average hours per week small business employees spend on tasks that AI can handle</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3.5x</div>
+        <div class="stat-label">More revenue generated by businesses that automate lead follow-up vs those that don't</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px;color:#f87171">Without AI Automation</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:#f87171;font-size:18px;line-height:1">×</span>Leads go cold while you're busy doing the actual work</li>
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:#f87171;font-size:18px;line-height:1">×</span>Employees spend hours on data entry, reminders, and follow-ups</li>
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:#f87171;font-size:18px;line-height:1">×</span>Revenue is tied to the hours you personally put in</li>
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:#f87171;font-size:18px;line-height:1">×</span>Scaling means hiring — and all the costs that come with it</li>
+        </ul>
+      </div>
+      <div style="background:rgba(52,211,153,0.04);border:1px solid rgba(52,211,153,0.2);border-radius:var(--radius-xl);padding:32px">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px;color:var(--accent-green)">With CNAX AI Systems</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent-green);font-size:18px;line-height:1">✓</span>Leads get a response in under 90 seconds — even at midnight</li>
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent-green);font-size:18px;line-height:1">✓</span>Follow-up sequences run automatically across SMS and email</li>
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent-green);font-size:18px;line-height:1">✓</span>Revenue grows without proportionally growing your team</li>
+          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent-green);font-size:18px;line-height:1">✓</span>Your best processes run consistently, every time, at scale</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container" style="text-align:center">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">About This <span>Calculator</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How accurate is this calculator?
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>The calculator uses conservative, industry-validated assumptions. The 15% close rate on recovered leads is based on published research on lead follow-up response rates. Your actual numbers may vary — some businesses recover significantly more, some less. The goal is to give you a directional estimate, not an accounting report. The real exercise is making you think about costs you may have been ignoring.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What types of manual tasks does AI typically automate?
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>The most common time-consuming tasks we automate include: lead response and qualification, appointment scheduling and reminders, quote or proposal follow-up, customer re-engagement and win-back campaigns, review request campaigns, data entry between systems, and routine customer communication like order status updates or payment reminders. The exact mix depends on your industry and business model.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How quickly does CNAX AI typically recover this lost revenue?
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>Lead response automation typically shows results within the first week — you'll see more leads being engaged and more appointments being booked almost immediately. Full results from follow-up sequences and re-engagement campaigns typically materialize within 30–90 days. Most clients see a positive ROI within the first month.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Does this work for my type of business?
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>CNAX AI works across a wide range of industries — home services, medical and wellness, professional services (legal, financial, consulting), restaurants, retail and e-commerce, automotive, fitness, childcare, and more. If your business has leads coming in, customers to follow up with, or repetitive communication tasks, AI can almost certainly help. The best way to know for sure is to book a free audit call — we'll be honest if it's not a fit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does a free AI audit include?
+          <svg class="faq-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>A free AI audit with CNAX AI is a 30-minute video call where we map your current lead flow and operations, identify your biggest time and revenue leaks, and recommend the top 2–3 AI projects that would have the fastest ROI for your specific business. You leave with a clear roadmap — whether you choose to work with us or not. There's no pitch or pressure.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;text-align:center">
+      <p style="font-size:16px;color:var(--text-secondary);margin-bottom:24px">Ready to stop leaving money on the table?</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:white;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:600">Book a Free Audit Call</a>
+        <a href="ai-audit.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-primary);padding:14px 28px;border-radius:12px;font-size:15px;font-weight:600">Take the AI Readiness Quiz</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="page-footer">
+      <span>© 2026 CNAX AI</span>
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <a href="index.html">Home</a>
+        <a href="ai-audit.html">AI Audit Quiz</a>
+        <a href="ai-readiness-guide.html">Free Guide</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function fmtDollar(n){if(n>=1000000)return'$'+(n/1000000).toFixed(1)+'M';if(n>=1000)return'$'+Math.round(n/1000)+'K';return'$'+n.toLocaleString();}
+  function updateROI(){
+    const emp=+document.getElementById('sl-employees').value;
+    const hrs=+document.getElementById('sl-hours').value;
+    const rate=+document.getElementById('sl-rate').value;
+    const leads=+document.getElementById('sl-leads').value;
+    const deal=+document.getElementById('sl-deal').value;
+    document.getElementById('val-employees').textContent=emp;
+    document.getElementById('val-hours').textContent=hrs;
+    document.getElementById('val-rate').textContent='$'+rate;
+    document.getElementById('val-leads').textContent=leads;
+    document.getElementById('val-deal').textContent=deal>=1000?'$'+(deal/1000).toFixed(1)+'K':'$'+deal;
+    const labor=Math.round(emp*hrs*4.33*rate);
+    const revenue=Math.round(leads*deal*0.15);
+    const total=labor+revenue;
+    const recovered=Math.round(total*0.7);
+    document.getElementById('roi-labor').textContent=fmtDollar(labor);
+    document.getElementById('roi-revenue').textContent=fmtDollar(revenue);
+    document.getElementById('roi-total').textContent=fmtDollar(total);
+    document.getElementById('roi-total2').textContent=fmtDollar(total);
+    document.getElementById('roi-recovered').textContent=fmtDollar(recovered);
+  }
+  document.querySelectorAll('.roi-range').forEach(r=>r.addEventListener('input',updateROI));
+  updateROI();
+  function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+</script>
+
+<!-- ─── COOKIE CONSENT ──────────────────────────────────────────── -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:20px 24px;background:rgba(13,13,31,0.97);border-top:1px solid rgba(99,102,241,0.25);backdrop-filter:blur(12px);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <p style="font-size:14px;color:#94a3b8;margin:0;flex:1;min-width:260px;">We use cookies to analyze site traffic and improve your experience. <a href="#" style="color:#6366f1;">Learn more</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="cookie-decline" style="padding:9px 18px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:none;color:#94a3b8;font-size:13px;cursor:pointer;">Essential Only</button>
+      <button id="cookie-accept" style="padding:9px 18px;border-radius:8px;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;font-size:13px;font-weight:600;cursor:pointer;">Accept All</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){var consent=localStorage.getItem('cx-cookie-consent');if(!consent){document.getElementById('cookie-banner').style.display='block';}document.getElementById('cookie-accept').addEventListener('click',function(){localStorage.setItem('cx-cookie-consent','accepted');document.getElementById('cookie-banner').style.display='none';loadAnalytics();});document.getElementById('cookie-decline').addEventListener('click',function(){localStorage.setItem('cx-cookie-consent','declined');document.getElementById('cookie-banner').style.display='none';});if(consent==='accepted')loadAnalytics();function loadAnalytics(){if(window._gaLoaded)return;window._gaLoaded=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-E9EK57TFJ9';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E9EK57TFJ9');}})();
+</script>
+<script type="text/javascript">var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69ab62a4f667fc1c3721ef80/1jj2nikmu';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
+</body>
+</html>

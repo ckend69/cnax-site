@@ -20,6 +20,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Free Tools -->
+  <url>
+    <loc>https://cnax.ai/roi-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-audit.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-readiness-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Industry Pages -->
   <url>
     <loc>https://cnax.ai/ai-for-home-services.html</loc>
     <changefreq>monthly</changefreq>
@@ -31,7 +48,17 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://cnax.ai/ai-for-financial-services.html</loc>
+    <loc>https://cnax.ai/ai-for-dental.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-for-hvac.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-for-gyms.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -46,8 +73,28 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://cnax.ai/ai-readiness-guide.html</loc>
+    <loc>https://cnax.ai/ai-for-financial-services.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-for-law-firms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-for-ecommerce.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-for-auto-repair.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cnax.ai/ai-for-childcare.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 </urlset>
