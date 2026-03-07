@@ -26,6 +26,54 @@
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"Service","name":"AI for Dental Practices","provider":{"@type":"Organization","name":"CNAX AI","url":"https://cnax.ai"},"description":"AI patient follow-up, appointment reminders, review generation and recall automation for dental practices.","areaServed":"US" }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this work with Dentrix, Eaglesoft, or Open Dental?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. CNAX AI integrates natively with Dentrix, Eaglesoft, Open Dental, Curve Dental, and most other major practice management systems. We pull patient data, appointment schedules, and treatment history directly from your PMS \u2014 no manual exports or CSV uploads required. If you use a less common system, we'll evaluate it during your free audit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this HIPAA compliant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HIPAA compliance is built into every layer of the platform. All patient data is encrypted in transit and at rest. We sign a Business Associate Agreement (BAA) with every dental practice before integration. Messages sent through our system are compliant with HIPAA's minimum necessary standard \u2014 we never include protected health information in outbound messages beyond what's needed for the communication purpose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the inactive patient reactivation actually work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We pull a list of every patient in your PMS who hasn't had an appointment in 18 months or longer. We then run a 3-touch sequence over 3\u20134 weeks: a friendly SMS check-in, a follow-up email with a direct booking link, and a final SMS nudge. Most practices reactivate 15\u201330% of contacted patients within the first campaign cycle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will patients know they're talking to an AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All outbound messages are written in your practice's voice and read like they came from a real team member. We customize every sequence during setup to match your tone. When a patient replies with a question outside the script, the conversation is instantly handed off to your front desk with full history."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly do practices see results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reminder sequences reduce no-shows within the first 2\u20133 weeks. Review generation picks up momentum within 30\u201345 days. Reactivation campaigns typically produce booked appointments within the first 10 days of launch. Most practices report clear, measurable ROI within the first 60 days."
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
